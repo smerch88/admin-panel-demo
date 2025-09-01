@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import {
   useUsers,
   useCollections,
@@ -14,7 +14,7 @@ import {
 } from "@/hooks";
 import { CreateCollectionRequest } from "@/lib/types";
 import { useAuth } from "@/contexts/AuthContext";
-import { getImageUrl, getCollectionImageUrl, isAdmin } from "@/lib/utils";
+import { getCollectionImageUrl, isAdmin } from "@/lib/utils";
 
 export function ExampleUsage() {
   // Auth hooks
@@ -151,9 +151,11 @@ export function ExampleUsage() {
                   <p className="font-medium">{collection.title}</p>
                   <p className="text-sm text-gray-600">{collection.desc}</p>
                   {collection.image && collection.image.length > 0 && (
-                    <img
+                    <Image
                       src={getCollectionImageUrl(collection.image[0])}
                       alt={collection.alt}
+                      width={64}
+                      height={64}
                       className="w-16 h-16 object-cover rounded mt-1"
                     />
                   )}
@@ -226,9 +228,11 @@ export function ExampleUsage() {
                     Language: {partner.language}
                   </p>
                   {partner.image && (
-                    <img
+                    <Image
                       src={getCollectionImageUrl(partner.image)}
                       alt={partner.logo}
+                      width={48}
+                      height={48}
                       className="w-12 h-12 object-cover rounded mt-1"
                     />
                   )}
@@ -262,9 +266,11 @@ export function ExampleUsage() {
                     {teammate.description}
                   </p>
                   {teammate.image && (
-                    <img
+                    <Image
                       src={getCollectionImageUrl(teammate.image)}
                       alt={teammate.name}
+                      width={48}
+                      height={48}
                       className="w-12 h-12 object-cover rounded mt-1"
                     />
                   )}

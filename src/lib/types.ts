@@ -101,7 +101,7 @@ export interface Collection {
   term: string | null;
   days: number | null;
   period: string | null;
-  comments: any | null;
+  comments: string[] | null;
   quantity: number | null;
   currency: string | null;
   long_desc: LongDescription;

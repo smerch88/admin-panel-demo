@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { ApiResponse } from "@/lib/types";
 
 // Delete user hook
 export const useDeleteUser = () => {
