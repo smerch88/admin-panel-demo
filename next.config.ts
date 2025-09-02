@@ -5,29 +5,29 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'inharmony-v1.h.goit.study',
-        port: '',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "inharmony-v1.h.goit.study",
+        port: "",
+        pathname: "/images/**",
       },
     ],
   },
   // Configure for production deployment
-  output: 'standalone',
+  output: "standalone",
   // Ensure static assets are served correctly
   trailingSlash: false,
   // Handle base path if needed
-  basePath: process.env.NODE_ENV === 'production' ? '' : '',
+  basePath: process.env.NODE_ENV === "production" ? "" : "",
   // Configure asset loading
   experimental: {
     // Enable modern features
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ["lucide-react"],
   },
 };
 
