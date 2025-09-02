@@ -21,6 +21,11 @@ export const useRegister = () => {
       }
       // Invalidate and refetch user data
       queryClient.invalidateQueries({ queryKey: ["auth"] });
+
+      // Redirect to dashboard after successful registration
+      if (typeof window !== "undefined") {
+        window.location.href = "/dashboard";
+      }
     },
   });
 };

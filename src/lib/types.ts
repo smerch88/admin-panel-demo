@@ -34,8 +34,7 @@ export interface LoginRequest {
 
 // Login response (returns user data, not just token)
 export interface LoginResponse {
-  user: User;
-  token: string;
+  message: string;
 }
 
 // Register request

@@ -5,6 +5,7 @@ export const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // This ensures cookies are sent with every request
 });
 
 api.interceptors.request.use(
@@ -14,6 +15,7 @@ api.interceptors.request.use(
     return config;
   },
   error => {
+    console.error("Request error:", error);
     return Promise.reject(error);
   }
 );

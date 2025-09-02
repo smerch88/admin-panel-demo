@@ -1,8 +1,7 @@
 "use client";
 
-import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -13,8 +12,38 @@ export function ProtectedRoute({
   children,
   requiredRole,
 }: ProtectedRouteProps) {
-  const { user, isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userRole, setUserRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        // Check if user is authenticated by checking localStorage
+        // Since we're using httpOnly cookies, the server will handle auth
+        // We'll check if user data exists in localStorage as a fallback
+        if (typeof window !== "undefined") {
+          const userData = localStorage.getItem("user");
+          if (userData) {
+            const user = JSON.parse(userData);
+            setIsAuthenticated(true);
+            setUserRole(user.role);
+          } else {
+            setIsAuthenticated(false);
+            setUserRole(null);
+          }
+        }
+      } catch (error) {
+        setIsAuthenticated(false);
+        setUserRole(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   useEffect(() => {
     if (!isLoading) {
@@ -24,21 +53,21 @@ export function ProtectedRoute({
         return;
       }
 
-      if (requiredRole && user?.role !== requiredRole) {
+      if (requiredRole && userRole !== requiredRole) {
         // Якщо потрібна конкретна роль і у користувача її немає
-        if (requiredRole === "admin" && user?.role !== "admin") {
-          router.push("/"); // Перенаправляємо на головну
+        if (requiredRole === "admin" && userRole !== "admin") {
+          router.push("/dashboard"); // Перенаправляємо на dashboard
           return;
         }
       }
     }
-  }, [isAuthenticated, isLoading, user, router, requiredRole]);
+  }, [isAuthenticated, isLoading, userRole, router, requiredRole]);
 
   // Показуємо loading поки перевіряємо авторизацію
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-b-2 border-indigo-600"></div>
       </div>
     );
   }
@@ -49,7 +78,7 @@ export function ProtectedRoute({
   }
 
   // Якщо потрібна роль і у користувача її немає, не показуємо контент
-  if (requiredRole && user?.role !== requiredRole) {
+  if (requiredRole && userRole !== requiredRole) {
     return null;
   }
 

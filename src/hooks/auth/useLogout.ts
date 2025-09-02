@@ -1,23 +1,28 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { useAuth } from "@/contexts/AuthContext";
 
 // Logout hook
 export const useLogout = () => {
-  const queryClient = useQueryClient();
-  const { logout } = useAuth();
-
   return useMutation({
-    mutationFn: async (): Promise<void> => {
-      await api.post("/auth/logout");
-      // Logout returns 204 No Content, no response body
+    mutationFn: async () => {
+      const response = await api.post("/auth/logout");
+      return response.data;
     },
     onSuccess: () => {
-      // Token is automatically cleared from httpOnly cookies by the server
-      // Update auth context
-      logout();
-      // Clear all queries
-      queryClient.clear();
+      // Clear any stored user data
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("user");
+        // Redirect to login page
+        window.location.href = "/login";
+      }
+    },
+    onError: (error: unknown) => {
+      console.error("Logout error:", error);
+      // Even if logout fails, clear local data and redirect
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+      }
     },
   });
 };

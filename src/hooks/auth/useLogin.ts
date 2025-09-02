@@ -1,12 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
 import { LoginRequest, LoginResponse, ApiResponse } from "@/lib/types";
-import { useAuth } from "@/contexts/AuthContext";
 
 // Login hook
 export const useLogin = () => {
   const queryClient = useQueryClient();
-  const { login } = useAuth();
 
   return useMutation({
     mutationFn: async (
@@ -15,12 +13,17 @@ export const useLogin = () => {
       const response = await api.post("/auth/login", credentials);
       return response.data;
     },
-    onSuccess: data => {
-      // Token is automatically stored in httpOnly cookies by the server
-      // Update auth context with user data
-      login(data.data.user);
-      // Invalidate and refetch user data
+    onSuccess: () => {
+      // Invalidate and refetch user data if needed
       queryClient.invalidateQueries({ queryKey: ["auth"] });
+
+      // Redirect to dashboard after successful login
+      if (typeof window !== "undefined") {
+        window.location.href = "/dashboard";
+      }
+    },
+    onError: (error: unknown) => {
+      console.error("Login error:", error);
     },
   });
 };

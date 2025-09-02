@@ -1,27 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLogin } from "@/hooks";
 import { LoginRequest } from "@/lib/types";
-import { useAuth } from "@/contexts/AuthContext";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { isAuthenticated, isLoading } = useAuth();
   const login = useLogin();
   const [formData, setFormData] = useState<LoginRequest>({
     email: "",
     password: "",
   });
   const [error, setError] = useState<string>("");
-
-  // Якщо користувач вже авторизований, перенаправляємо на головну
-  useEffect(() => {
-    if (!isLoading && isAuthenticated) {
-      router.push("/");
-    }
-  }, [isAuthenticated, isLoading, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,20 +27,6 @@ export default function LoginPage() {
       setError(error.response?.data?.message || "Помилка авторизації");
     }
   };
-
-  // Показуємо loading поки перевіряємо авторизацію
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600"></div>
-      </div>
-    );
-  }
-
-  // Якщо користувач вже авторизований, не показуємо форму
-  if (isAuthenticated) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
