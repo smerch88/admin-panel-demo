@@ -18,18 +18,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Configure for production deployment
+  output: 'standalone',
+  // Ensure static assets are served correctly
+  trailingSlash: false,
+  // Handle base path if needed
+  basePath: process.env.NODE_ENV === 'production' ? '' : '',
+  // Configure asset loading
   experimental: {
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
-  },
-  devIndicators: {
-    buildActivity: false,
+    // Enable modern features
+    optimizePackageImports: ['lucide-react'],
   },
 };
 
