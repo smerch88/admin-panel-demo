@@ -185,6 +185,9 @@ export interface Report {
   month: string;
   url: string;
   language: "en" | "ua";
+  type: string;
+  status: string;
+  __v?: number;
   createdAt?: string;
   updatedAt?: string;
 }

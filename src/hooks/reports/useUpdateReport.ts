@@ -13,7 +13,7 @@ export const useUpdateReport = () => {
     }: {
       id: string;
       reportData: UpdateReportRequest;
-    }): Promise<ApiResponse<Report>> => {
+    }): Promise<Report> => {
       const response = await api.patch(`/reports/${id}`, reportData);
       return response.data;
     },
@@ -22,7 +22,7 @@ export const useUpdateReport = () => {
       queryClient.setQueryData([`reports-${variables.id}`], data);
       // Invalidate reports list for the specific language
       queryClient.invalidateQueries({
-        queryKey: [`reports-${data.data.language}`],
+        queryKey: [`reports-${data.language}`],
       });
     },
   });
