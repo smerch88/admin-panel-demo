@@ -5,19 +5,82 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Image URL utilities
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-const IMAGE_BASE_URL = `${API_BASE_URL!.replace("/api", "")}/images/all/`;
+// Image utility functions
+const IMAGE_BASE_URL = "https://inharmony-v1.h.goit.study/images/all/";
 
-export function getImageUrl(path: string): string {
-  if (!path) return "";
-  return `${IMAGE_BASE_URL}${path}`;
+export function getImageUrl(imageData: unknown): string | null {
+  if (!imageData) return null;
+
+  // Handle array of images
+  if (Array.isArray(imageData) && imageData.length > 0) {
+    const firstImage = imageData[0];
+    if (firstImage && typeof firstImage === "object") {
+      // Check for path field (preferred)
+      if (
+        "path" in firstImage &&
+        typeof (firstImage as { path: string }).path === "string"
+      ) {
+        const path = (firstImage as { path: string }).path;
+        if (path.trim() !== "") {
+          return `${IMAGE_BASE_URL}${path}`;
+        }
+      }
+      // Fallback to url field
+      if (
+        "url" in firstImage &&
+        typeof (firstImage as { url: string }).url === "string"
+      ) {
+        return (firstImage as { url: string }).url;
+      }
+    }
+  }
+
+  // Handle single image object
+  if (imageData && typeof imageData === "object") {
+    // Check for path field (preferred)
+    if (
+      "path" in imageData &&
+      typeof (imageData as { path: string }).path === "string"
+    ) {
+      const path = (imageData as { path: string }).path;
+      if (path.trim() !== "") {
+        return `${IMAGE_BASE_URL}${path}`;
+      }
+    }
+    // Fallback to url field
+    if (
+      "url" in imageData &&
+      typeof (imageData as { url: string }).url === "string"
+    ) {
+      return (imageData as { url: string }).url;
+    }
+  }
+
+  // Handle string URL (direct URL or path)
+  if (typeof imageData === "string" && imageData.trim() !== "") {
+    const trimmedPath = imageData.trim();
+    // If it's already a full URL, return as is
+    if (trimmedPath.startsWith("http")) {
+      return trimmedPath;
+    }
+    // If it's just a path, prepend the base URL
+    return `${IMAGE_BASE_URL}${trimmedPath}`;
+  }
+
+  return null;
 }
 
-export function getCollectionImageUrls(
-  images: Array<{ path: string; url?: string }>
-): string[] {
-  return images
-    .filter(img => img.path && img.path.trim() !== "")
-    .map(img => getImageUrl(img.path));
+export function isValidImageUrl(url: string | null): boolean {
+  if (!url || typeof url !== "string") return false;
+
+  const trimmedUrl = url.trim();
+  if (trimmedUrl === "") return false;
+
+  // Check if it's a valid URL
+  try {
+    new URL(trimmedUrl);
+    return true;
+  } catch {
+    return false;
+  }
 }

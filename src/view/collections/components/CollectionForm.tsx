@@ -22,7 +22,6 @@ import {
 } from "@/lib/types";
 import Image from "next/image";
 import { Plus, X } from "lucide-react";
-import { getImageUrl } from "@/lib/utils";
 
 // Zod schema for form validation
 const collectionFormSchema = z.object({
@@ -489,7 +488,7 @@ export function CollectionForm({
               {currentImages.map((img, index) => (
                 <div key={index} className="relative">
                   <Image
-                    src={getImageUrl(img.path)}
+                    src={img.url}
                     alt={`Image ${index + 1}`}
                     width={64}
                     height={64}
