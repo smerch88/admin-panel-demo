@@ -4,6 +4,7 @@ import { Collection } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { getImageUrl } from "@/lib/utils";
 
 interface CollectionDetailsProps {
   collection: Collection;
@@ -74,11 +75,11 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
               <div className="flex flex-wrap gap-2 mt-2">
                 {collection.image && collection.image.length > 0 ? (
                   collection.image
-                    .filter(img => img.url && img.url.trim() !== "")
+                    .filter(img => img.path && img.path.trim() !== "")
                     .map((img, index) => (
                       <div key={index} className="relative">
                         <Image
-                          src={img.url}
+                          src={getImageUrl(img.path)}
                           alt={`Collection image ${index + 1}`}
                           width={96}
                           height={96}

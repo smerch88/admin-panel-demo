@@ -45,6 +45,7 @@ import { CollectionDetails } from "@/components/collections/CollectionDetails";
 import { Plus, Edit, Trash2, Eye } from "lucide-react";
 import { toast } from "sonner";
 import Image from "next/image";
+import { getImageUrl } from "@/lib/utils";
 
 export default function CollectionsPage() {
   const [selectedLocale, setSelectedLocale] = useState("ua");
@@ -285,10 +286,10 @@ export default function CollectionsPage() {
                         <TableCell>
                           {collection.image &&
                           collection.image.length > 0 &&
-                          collection.image[0].url &&
-                          collection.image[0].url.trim() !== "" ? (
+                          collection.image[0].path &&
+                          collection.image[0].path.trim() !== "" ? (
                             <Image
-                              src={collection.image[0].url}
+                              src={getImageUrl(collection.image[0].path)}
                               alt={collection.title}
                               width={48}
                               height={48}
