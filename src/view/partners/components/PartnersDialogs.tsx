@@ -182,3 +182,4 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
     </>
   );
 };
+

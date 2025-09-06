@@ -19,3 +19,4 @@ export const PartnersHeader: React.FC<PartnersHeaderProps> = ({
     </div>
   );
 };
+

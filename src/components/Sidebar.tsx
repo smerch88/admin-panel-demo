@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { useLogout } from "@/hooks/auth";
+import { useLogout, useCurrentUser } from "@/hooks/auth";
 import {
   LayoutDashboard,
   FolderOpen,
@@ -14,6 +14,7 @@ import {
   UserCheck,
   Settings,
   LogOut,
+  BarChart3,
 } from "lucide-react";
 
 const navigation = [
@@ -23,12 +24,14 @@ const navigation = [
   { name: "Partners", href: "/partners", icon: Users },
   { name: "Merch", href: "/merch", icon: ShoppingBag },
   { name: "Teammates", href: "/teammates", icon: UserCheck },
+  { name: "Stats", href: "/stats", icon: BarChart3 },
   { name: "Users", href: "/users", icon: Settings },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
   const logout = useLogout();
+  const { data: currentUser } = useCurrentUser();
 
   const handleLogout = async () => {
     try {
@@ -38,6 +41,15 @@ export function Sidebar() {
     }
   };
 
+  // Filter navigation based on user role
+  const filteredNavigation = navigation.filter(item => {
+    // Only admins can see the Users page
+    if (item.name === "Users") {
+      return currentUser?.role === "admin";
+    }
+    return true;
+  });
+
   return (
     <div className="flex h-screen w-64 flex-col bg-white border-r border-gray-200">
       {/* Logo */}
@@ -45,9 +57,41 @@ export function Sidebar() {
         <h1 className="text-xl font-bold text-gray-900">Inharmony Admin</h1>
       </div>
 
+      {/* User Profile */}
+      {currentUser && (
+        <div className="border-b border-gray-200 p-4">
+          <div className="flex items-center space-x-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100">
+              <span className="text-sm font-medium text-indigo-700">
+                {currentUser.name.charAt(0).toUpperCase()}
+              </span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-gray-900 truncate">
+                {currentUser.name}
+              </p>
+              <p className="text-xs text-gray-500 truncate">
+                {currentUser.email}
+              </p>
+              <div className="flex items-center mt-1">
+                <span
+                  className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
+                    currentUser.role === "admin"
+                      ? "bg-red-100 text-red-800"
+                      : "bg-blue-100 text-blue-800"
+                  }`}
+                >
+                  {currentUser.role === "admin" ? "Admin" : "Editor"}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="flex-1 space-y-1 px-3 py-4">
-        {navigation.map(item => {
+        {filteredNavigation.map(item => {
           const isActive = pathname === item.href;
           return (
             <Link

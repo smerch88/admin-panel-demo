@@ -21,9 +21,7 @@ export interface User {
   _id: string;
   name: string;
   email: string;
-  role: "admin" | "editor" | "user";
-  createdAt?: string;
-  updatedAt?: string;
+  role: "admin" | "editor";
 }
 
 // Login request
@@ -42,7 +40,7 @@ export interface RegisterRequest {
   name: string;
   email: string;
   password: string;
-  role: "admin" | "editor" | "user";
+  role: "admin" | "editor";
 }
 
 // Register response (same as login)
@@ -55,7 +53,7 @@ export interface RegisterResponse {
 export interface UpdateUserRequest {
   name?: string;
   email?: string;
-  role?: "admin" | "editor" | "user";
+  role?: "admin" | "editor";
   password?: string;
 }
 
@@ -258,17 +256,24 @@ export interface UpdateMerchRequest {
 
 // ===== STATS TYPES =====
 
-// Stats interface
-export interface Stats {
-  fedPeople: number;
-  providedWithClothing: number;
-  providedWithWater: number;
-  receivedMedications: number;
-  fedAnimals: number;
-  providedWithElectricity: number;
+// Individual stat item interface
+export interface StatItem {
+  amount: number;
+  description: string;
+  _id: string;
 }
 
-// Update stats request
+// Stats interface (matches API response)
+export interface Stats {
+  fedPeople: StatItem;
+  providedWithClothing: StatItem;
+  providedWithWater: StatItem;
+  receivedMedications: StatItem;
+  fedAnimals: StatItem;
+  providedWithElectricity: StatItem;
+}
+
+// Update stats request (matches API request body)
 export interface UpdateStatsRequest {
   fedPeople: number;
   providedWithClothing: number;

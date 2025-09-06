@@ -42,7 +42,7 @@ export const TeammateDetails: React.FC<TeammateDetailsProps> = ({
             <div>
               <p className="text-sm font-medium text-gray-500">Language</p>
               <Badge variant="secondary" className="text-sm">
-                {teammate.locale.toUpperCase()}
+                {teammate.locale?.toUpperCase() || "N/A"}
               </Badge>
             </div>
           </div>

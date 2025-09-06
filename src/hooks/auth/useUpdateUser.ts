@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { UpdateUserRequest, User, ApiResponse } from "@/lib/types";
+import { UpdateUserRequest, User } from "@/lib/types";
 
 // Update user hook
 export const useUpdateUser = () => {
@@ -13,7 +13,7 @@ export const useUpdateUser = () => {
     }: {
       userId: string;
       userData: UpdateUserRequest;
-    }): Promise<ApiResponse<User>> => {
+    }): Promise<User> => {
       const response = await api.patch(`/auth/users/${userId}`, userData);
       return response.data;
     },

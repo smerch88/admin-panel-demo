@@ -119,7 +119,7 @@ export const TeammatesTable: React.FC<TeammatesTableProps> = ({
                   </TableCell>
                   <TableCell>
                     <Badge variant="secondary">
-                      {teammate.locale.toUpperCase()}
+                      {teammate.locale?.toUpperCase() || "N/A"}
                     </Badge>
                   </TableCell>
                   <TableCell>
