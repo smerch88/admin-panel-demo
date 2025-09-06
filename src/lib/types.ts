@@ -256,38 +256,6 @@ export interface UpdateMerchRequest {
   link: string;
 }
 
-// ===== TEAMMATES TYPES =====
-
-// Teammate interface
-export interface Teammate {
-  _id: string;
-  name: string;
-  role: string;
-  description: string;
-  image: CollectionImage;
-  locale: "en" | "ua";
-  createdAt?: string;
-  updatedAt?: string;
-}
-
-// Create teammate request (multipart/form-data)
-export interface CreateTeammateRequest {
-  name: string;
-  role: string;
-  description: string;
-  image: File;
-  locale: "en" | "ua";
-}
-
-// Update teammate request (multipart/form-data)
-export interface UpdateTeammateRequest {
-  name?: string;
-  role?: string;
-  description?: string;
-  image?: File;
-  locale?: "en" | "ua";
-}
-
 // ===== STATS TYPES =====
 
 // Stats interface
@@ -325,4 +293,43 @@ export interface UpdateMerchRequest {
   status: "on" | "off";
   content: string;
   link: string;
+}
+
+// ===== TEAMMATES TYPES =====
+
+// Teammate interface
+export interface Teammate {
+  _id: string;
+  name: string;
+  role: string;
+  description: string;
+  image: CollectionImage[];
+  icon?: string;
+  locale?: "en" | "ua";
+  __v?: number;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+// Teammates response structure
+export interface TeammatesResponse {
+  locale: "en" | "ua";
+  teammates: Teammate[];
+}
+
+// Create teammate request (multipart/form-data)
+export interface CreateTeammateRequest {
+  name: string;
+  role: string;
+  description: string;
+  image: File;
+  locale: "en" | "ua";
+}
+
+// Update teammate request (multipart/form-data)
+export interface UpdateTeammateRequest {
+  name?: string;
+  role?: string;
+  description?: string;
+  image?: File;
 }

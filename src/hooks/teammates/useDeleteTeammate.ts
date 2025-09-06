@@ -19,11 +19,11 @@ export const useDeleteTeammate = () => {
     onSuccess: (_, variables) => {
       // Remove teammate from cache
       queryClient.removeQueries({
-        queryKey: [`teammates-${variables.id}`],
+        queryKey: ["teammates", variables.id],
       });
-      // Invalidate teammates list for the specific language
+      // Invalidate all teammates queries to update all lists
       queryClient.invalidateQueries({
-        queryKey: [`teammates-${variables.locale}`],
+        queryKey: ["teammates"],
       });
     },
   });

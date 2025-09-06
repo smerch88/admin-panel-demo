@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { CreateTeammateRequest, Teammate, ApiResponse } from "@/lib/types";
+import { CreateTeammateRequest, Teammate } from "@/lib/types";
 
 // Create teammate
 export const useCreateTeammate = () => {
@@ -9,7 +9,7 @@ export const useCreateTeammate = () => {
   return useMutation({
     mutationFn: async (
       teammateData: CreateTeammateRequest
-    ): Promise<ApiResponse<Teammate>> => {
+    ): Promise<Teammate> => {
       // Create FormData for multipart/form-data
       const formData = new FormData();
 
@@ -28,9 +28,9 @@ export const useCreateTeammate = () => {
       return response.data;
     },
     onSuccess: data => {
-      // Invalidate teammates list for the specific language
+      // Invalidate all teammates queries to update all lists
       queryClient.invalidateQueries({
-        queryKey: [`teammates-${data.data.locale}`],
+        queryKey: ["teammates"],
       });
     },
   });
