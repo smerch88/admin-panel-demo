@@ -13,7 +13,7 @@ export const useUpdatePartner = () => {
     }: {
       id: string;
       partnerData: UpdatePartnerRequest;
-    }): Promise<ApiResponse<Partner>> => {
+    }): Promise<Partner> => {
       // Create FormData for multipart/form-data
       const formData = new FormData();
 

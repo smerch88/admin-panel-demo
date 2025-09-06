@@ -213,10 +213,12 @@ export interface UpdateReportRequest {
 // Partner interface
 export interface Partner {
   _id: string;
-  image: CollectionImage;
   logo: string;
+  type: string;
+  image: CollectionImage[];
   link: string;
   language: "en" | "ua";
+  __v?: number;
   createdAt?: string;
   updatedAt?: string;
 }

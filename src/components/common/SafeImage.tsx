@@ -24,7 +24,8 @@ export const SafeImage: React.FC<SafeImageProps> = ({
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  if (hasError) {
+  // Handle empty or invalid src
+  if (!src || src.trim() === "" || hasError) {
     return (
       <div
         className={cn(
@@ -57,7 +58,6 @@ export const SafeImage: React.FC<SafeImageProps> = ({
         height={height}
         className={cn("object-cover rounded border", className)}
         onError={() => {
-          console.error("Image load error for:", src);
           setHasError(true);
         }}
         onLoad={() => setIsLoading(false)}

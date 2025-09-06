@@ -6,10 +6,9 @@ import { Partner, ApiResponse } from "@/lib/types";
 export const usePartners = () => {
   return useQuery({
     queryKey: ["partners"],
-    queryFn: async (): Promise<ApiResponse<Partner[]>> => {
+    queryFn: async (): Promise<Partner[]> => {
       const response = await api.get("/partners");
       return response.data;
     },
-    select: data => data.data,
   });
 };

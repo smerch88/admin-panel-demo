@@ -7,9 +7,7 @@ export const useCreatePartner = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (
-      partnerData: CreatePartnerRequest
-    ): Promise<ApiResponse<Partner>> => {
+    mutationFn: async (partnerData: CreatePartnerRequest): Promise<Partner> => {
       // Create FormData for multipart/form-data
       const formData = new FormData();
 
