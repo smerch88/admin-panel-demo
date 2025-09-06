@@ -4,31 +4,36 @@ import { useState } from "react";
 import { AdminLayout } from "@/components/AdminLayout";
 import { LocaleSwitcher, PageHeader } from "@/components/common";
 import { Merch } from "@/lib/types";
-import { MerchHeader, MerchForm, MerchDetails } from "./components";
+import { MerchHeader, MerchDetails, MerchModal } from "./components";
 
 export default function MerchView() {
   const [selectedLocale, setSelectedLocale] = useState("ua");
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [merchData, setMerchData] = useState<Merch | null>(null);
 
   const handleLocaleChange = (locale: string) => {
     setSelectedLocale(locale);
-    setIsEditMode(false);
+    setIsModalOpen(false);
     setMerchData(null);
   };
 
   const handleEdit = (merch: Merch) => {
     setMerchData(merch);
-    setIsEditMode(true);
+    setIsModalOpen(true);
   };
 
-  const handleCancel = () => {
-    setIsEditMode(false);
+  const handleCreate = () => {
+    setMerchData(null);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
     setMerchData(null);
   };
 
   const handleSuccess = () => {
-    setIsEditMode(false);
+    setIsModalOpen(false);
     setMerchData(null);
   };
 
@@ -46,19 +51,21 @@ export default function MerchView() {
               selectedLocale={selectedLocale}
               onLocaleChange={handleLocaleChange}
             />
-            <MerchHeader onEdit={handleEdit} selectedLocale={selectedLocale} />
+            <MerchHeader
+              onEdit={handleCreate}
+              selectedLocale={selectedLocale}
+            />
           </div>
 
-          {isEditMode ? (
-            <MerchForm
-              locale={selectedLocale}
-              merchData={merchData}
-              onSuccess={handleSuccess}
-              onCancel={handleCancel}
-            />
-          ) : (
-            <MerchDetails locale={selectedLocale} onEdit={handleEdit} />
-          )}
+          <MerchDetails locale={selectedLocale} onEdit={handleEdit} />
+
+          <MerchModal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            locale={selectedLocale}
+            merchData={merchData}
+            onSuccess={handleSuccess}
+          />
         </div>
       </div>
     </AdminLayout>

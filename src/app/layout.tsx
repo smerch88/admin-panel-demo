@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Admin Panel Demo",
-  description: "Admin panel with API integration",
+  title: "Inharmony Admin",
+  description: "Admin panel for managing Inharmony platform",
 };
 
 export default function RootLayout({
