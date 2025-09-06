@@ -43,7 +43,7 @@ export default function DashboardPage() {
     users: [],
   });
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
 
   // Fetch all data using hooks with selected locale
   const { data: collectionsData, isLoading: collectionsLoading } =
@@ -321,7 +321,7 @@ export default function DashboardPage() {
               <div className="space-y-2">
                 {dashboardData.users.length > 0 ? (
                   dashboardData.users.map((user: User) => (
-                    <div key={user.id} className="p-3 bg-gray-50 rounded">
+                    <div key={user._id} className="p-3 bg-gray-50 rounded">
                       <p className="font-medium">{user.name}</p>
                       <p className="text-sm text-gray-600">{user.email}</p>
                       <p className="text-xs text-gray-500">Role: {user.role}</p>

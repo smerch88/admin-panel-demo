@@ -18,12 +18,12 @@ export interface PaginatedResponse<T> {
 
 // User interface
 export interface User {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   role: "admin" | "editor" | "user";
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 // Login request

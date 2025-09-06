@@ -34,7 +34,7 @@ export function ProtectedRoute({
             setUserRole(null);
           }
         }
-      } catch (error) {
+      } catch {
         setIsAuthenticated(false);
         setUserRole(null);
       } finally {
