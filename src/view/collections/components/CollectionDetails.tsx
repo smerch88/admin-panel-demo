@@ -3,7 +3,8 @@
 import { Collection } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
+import { SafeImage } from "@/components/common";
+import { getImageUrl } from "@/lib/utils";
 
 interface CollectionDetailsProps {
   collection: Collection;
@@ -74,21 +75,24 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
               <div className="flex flex-wrap gap-2 mt-2">
                 {collection.image && collection.image.length > 0 ? (
                   collection.image
-                    .filter(img => img.url && img.url.trim() !== "")
-                    .map((img, index) => (
-                      <div key={index} className="relative">
-                        <Image
-                          src={img.url}
-                          alt={`Collection image ${index + 1}`}
-                          width={96}
-                          height={96}
-                          className="object-cover rounded-lg border shadow-sm"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-b-lg">
-                          {img.path}
+                    .map((img, index) => {
+                      const imageUrl = getImageUrl(img);
+                      return imageUrl ? (
+                        <div key={index} className="relative">
+                          <SafeImage
+                            src={imageUrl}
+                            alt={`Collection image ${index + 1}`}
+                            width={96}
+                            height={96}
+                            className="object-cover rounded-lg border shadow-sm"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-b-lg">
+                            {img.path}
+                          </div>
                         </div>
-                      </div>
-                    ))
+                      ) : null;
+                    })
+                    .filter(Boolean)
                 ) : (
                   <p className="text-gray-500">No images</p>
                 )}

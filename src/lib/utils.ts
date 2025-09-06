@@ -15,7 +15,17 @@ export function getImageUrl(imageData: unknown): string | null {
   if (Array.isArray(imageData) && imageData.length > 0) {
     const firstImage = imageData[0];
     if (firstImage && typeof firstImage === "object") {
-      // Check for url field first (if it's a full URL, use it directly)
+      // Always prioritize path field for consistency
+      if (
+        "path" in firstImage &&
+        typeof (firstImage as { path: string }).path === "string"
+      ) {
+        const path = (firstImage as { path: string }).path;
+        if (path.trim() !== "") {
+          return `${IMAGE_BASE_URL}${path}`;
+        }
+      }
+      // Fallback to url field only if path is empty
       if (
         "url" in firstImage &&
         typeof (firstImage as { url: string }).url === "string"
@@ -30,22 +40,22 @@ export function getImageUrl(imageData: unknown): string | null {
           return `${IMAGE_BASE_URL}${url}`;
         }
       }
-      // Fallback to path field (this is the main field for your images)
-      if (
-        "path" in firstImage &&
-        typeof (firstImage as { path: string }).path === "string"
-      ) {
-        const path = (firstImage as { path: string }).path;
-        if (path.trim() !== "") {
-          return `${IMAGE_BASE_URL}${path}`;
-        }
-      }
     }
   }
 
   // Handle single image object
   if (imageData && typeof imageData === "object") {
-    // Check for url field first (if it's a full URL, use it directly)
+    // Always prioritize path field for consistency
+    if (
+      "path" in imageData &&
+      typeof (imageData as { path: string }).path === "string"
+    ) {
+      const path = (imageData as { path: string }).path;
+      if (path.trim() !== "") {
+        return `${IMAGE_BASE_URL}${path}`;
+      }
+    }
+    // Fallback to url field only if path is empty
     if (
       "url" in imageData &&
       typeof (imageData as { url: string }).url === "string"
@@ -58,16 +68,6 @@ export function getImageUrl(imageData: unknown): string | null {
         }
         // If it's a relative path, prepend the base URL
         return `${IMAGE_BASE_URL}${url}`;
-      }
-    }
-    // Fallback to path field (this is the main field for your images)
-    if (
-      "path" in imageData &&
-      typeof (imageData as { path: string }).path === "string"
-    ) {
-      const path = (imageData as { path: string }).path;
-      if (path.trim() !== "") {
-        return `${IMAGE_BASE_URL}${path}`;
       }
     }
   }

@@ -73,16 +73,6 @@ export const CollectionsTable: React.FC<CollectionsTableProps> = ({
                   {(() => {
                     const imageUrl = getImageUrl(collection.image);
 
-                    // Debug: log image data
-                    console.log("Collection:", collection.title);
-                    console.log("Image data:", collection.image);
-                    if (collection.image && collection.image.length > 0) {
-                      console.log("First image object:", collection.image[0]);
-                      console.log("Path field:", collection.image[0]?.path);
-                      console.log("URL field:", collection.image[0]?.url);
-                    }
-                    console.log("Final constructed URL:", imageUrl);
-
                     if (imageUrl && isValidImageUrl(imageUrl)) {
                       return (
                         <SafeImage
