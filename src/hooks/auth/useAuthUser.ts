@@ -11,6 +11,8 @@ export const useAuthUser = () => {
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
+    // Prevent hydration mismatch by not running on server
+    enabled: typeof window !== "undefined",
   });
 };
 

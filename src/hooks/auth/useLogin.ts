@@ -23,16 +23,11 @@ export const useLogin = () => {
         // Invalidate and refetch user data
         queryClient.invalidateQueries({ queryKey: ["auth"] });
 
-        // Redirect to dashboard after successful login
-        if (typeof window !== "undefined") {
-          window.location.href = "/dashboard";
-        }
+        // Note: Navigation is now handled by the LoginForm component
+        // to avoid chunk loading issues with window.location.href
       } catch (error) {
         console.error("Error fetching current user after login:", error);
-        // Still redirect even if fetching user data fails
-        if (typeof window !== "undefined") {
-          window.location.href = "/dashboard";
-        }
+        // Navigation will still be handled by LoginForm component
       }
     },
     onError: (error: unknown) => {

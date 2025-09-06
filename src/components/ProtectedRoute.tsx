@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCurrentUser } from "@/hooks/auth";
 
 interface ProtectedRouteProps {
@@ -15,27 +15,33 @@ export function ProtectedRoute({
 }: ProtectedRouteProps) {
   const router = useRouter();
   const { data: currentUser, isLoading, error } = useCurrentUser();
+  const [isClient, setIsClient] = useState(false);
+
+  // Prevent hydration mismatch by only running on client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
-    if (!isLoading) {
-      // If there's an error or no user data, redirect to login
-      if (error || !currentUser) {
-        router.push("/login");
+    if (!isClient || isLoading) return;
+
+    // If there's an error or no user data, redirect to login
+    if (error || !currentUser) {
+      router.push("/login");
+      return;
+    }
+
+    // Check role requirements
+    if (requiredRole && currentUser.role !== requiredRole) {
+      if (requiredRole === "admin" && currentUser.role !== "admin") {
+        router.push("/dashboard"); // Redirect non-admin users to dashboard
         return;
       }
-
-      // Check role requirements
-      if (requiredRole && currentUser.role !== requiredRole) {
-        if (requiredRole === "admin" && currentUser.role !== "admin") {
-          router.push("/dashboard"); // Redirect non-admin users to dashboard
-          return;
-        }
-      }
     }
-  }, [currentUser, isLoading, error, router, requiredRole]);
+  }, [currentUser, isLoading, error, router, requiredRole, isClient]);
 
-  // Show loading spinner while checking authentication
-  if (isLoading) {
+  // Show loading spinner while checking authentication or during hydration
+  if (!isClient || isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600"></div>

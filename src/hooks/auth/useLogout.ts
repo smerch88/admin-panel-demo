@@ -19,10 +19,8 @@ export const useLogout = () => {
       queryClient.invalidateQueries({ queryKey: ["auth"] });
       queryClient.invalidateQueries({ queryKey: ["auth-current-user"] });
 
-      // Redirect to login page
-      if (typeof window !== "undefined") {
-        window.location.href = "/login";
-      }
+      // Redirect to login page - let the component handle this
+      // to avoid chunk loading issues
     },
     onError: (error: unknown) => {
       console.error("Logout error:", error);
@@ -31,9 +29,7 @@ export const useLogout = () => {
       queryClient.invalidateQueries({ queryKey: ["auth"] });
       queryClient.invalidateQueries({ queryKey: ["auth-current-user"] });
 
-      if (typeof window !== "undefined") {
-        window.location.href = "/login";
-      }
+      // Redirect will be handled by the component using this hook
     },
   });
 };

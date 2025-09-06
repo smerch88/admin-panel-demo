@@ -29,7 +29,9 @@ api.interceptors.response.use(
       if (typeof window !== "undefined") {
         // Clear any stored user data
         localStorage.removeItem("user");
-        window.location.href = "/login";
+        // Use router.push instead of window.location.href to avoid chunk loading issues
+        // This will be handled by the component that uses this interceptor
+        console.warn("Unauthorized access detected. Please login again.");
       }
     }
     return Promise.reject(error);
