@@ -282,3 +282,25 @@ export interface UpdateTeammateRequest {
   image?: File;
   locale?: "en" | "ua";
 }
+
+// ===== STATS TYPES =====
+
+// Stats interface
+export interface Stats {
+  fedPeople: number;
+  providedWithClothing: number;
+  providedWithWater: number;
+  receivedMedications: number;
+  fedAnimals: number;
+  providedWithElectricity: number;
+}
+
+// Update stats request
+export interface UpdateStatsRequest {
+  fedPeople: number;
+  providedWithClothing: number;
+  providedWithWater: number;
+  receivedMedications: number;
+  fedAnimals: number;
+  providedWithElectricity: number;
+}

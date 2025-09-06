@@ -15,3 +15,6 @@ export * from "./merch";
 
 // Teammates hooks
 export * from "./teammates";
+
+// Stats hooks
+export * from "./stats";
