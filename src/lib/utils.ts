@@ -15,7 +15,22 @@ export function getImageUrl(imageData: unknown): string | null {
   if (Array.isArray(imageData) && imageData.length > 0) {
     const firstImage = imageData[0];
     if (firstImage && typeof firstImage === "object") {
-      // Check for path field (preferred)
+      // Check for url field first (if it's a full URL, use it directly)
+      if (
+        "url" in firstImage &&
+        typeof (firstImage as { url: string }).url === "string"
+      ) {
+        const url = (firstImage as { url: string }).url;
+        if (url.trim() !== "") {
+          // If it's already a full URL, return as is
+          if (url.startsWith("http")) {
+            return url;
+          }
+          // If it's a relative path, prepend the base URL
+          return `${IMAGE_BASE_URL}${url}`;
+        }
+      }
+      // Fallback to path field (this is the main field for your images)
       if (
         "path" in firstImage &&
         typeof (firstImage as { path: string }).path === "string"
@@ -25,19 +40,27 @@ export function getImageUrl(imageData: unknown): string | null {
           return `${IMAGE_BASE_URL}${path}`;
         }
       }
-      // Fallback to url field
-      if (
-        "url" in firstImage &&
-        typeof (firstImage as { url: string }).url === "string"
-      ) {
-        return (firstImage as { url: string }).url;
-      }
     }
   }
 
   // Handle single image object
   if (imageData && typeof imageData === "object") {
-    // Check for path field (preferred)
+    // Check for url field first (if it's a full URL, use it directly)
+    if (
+      "url" in imageData &&
+      typeof (imageData as { url: string }).url === "string"
+    ) {
+      const url = (imageData as { url: string }).url;
+      if (url.trim() !== "") {
+        // If it's already a full URL, return as is
+        if (url.startsWith("http")) {
+          return url;
+        }
+        // If it's a relative path, prepend the base URL
+        return `${IMAGE_BASE_URL}${url}`;
+      }
+    }
+    // Fallback to path field (this is the main field for your images)
     if (
       "path" in imageData &&
       typeof (imageData as { path: string }).path === "string"
@@ -46,13 +69,6 @@ export function getImageUrl(imageData: unknown): string | null {
       if (path.trim() !== "") {
         return `${IMAGE_BASE_URL}${path}`;
       }
-    }
-    // Fallback to url field
-    if (
-      "url" in imageData &&
-      typeof (imageData as { url: string }).url === "string"
-    ) {
-      return (imageData as { url: string }).url;
     }
   }
 

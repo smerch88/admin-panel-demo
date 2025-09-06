@@ -57,10 +57,14 @@ export const SafeImage: React.FC<SafeImageProps> = ({
         width={width}
         height={height}
         className={cn("object-cover rounded border", className)}
-        onError={() => {
+        onError={e => {
+          console.error("Image loading error:", src, e);
           setHasError(true);
         }}
         onLoad={() => setIsLoading(false)}
+        unoptimized={true}
+        priority={false}
+        quality={75}
       />
     </div>
   );

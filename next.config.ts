@@ -6,15 +6,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "res.cloudinary.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
         hostname: "inharmony-v1.h.goit.study",
         port: "",
-        pathname: "/**",
+        pathname: "/images/all/**",
       },
       {
         protocol: "http",
@@ -22,13 +16,9 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "**",
-        port: "",
-        pathname: "/**",
-      },
     ],
+    // Disable image optimization to prevent redirect loops
+    unoptimized: true,
   },
   // Configure for production deployment
   output: "standalone",
