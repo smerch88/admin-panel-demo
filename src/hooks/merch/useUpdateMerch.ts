@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { UpdateMerchRequest, Merch, ApiResponse } from "@/lib/types";
+import { UpdateMerchRequest, Merch } from "@/lib/types";
 
 // Update merch
 export const useUpdateMerch = () => {
@@ -13,14 +13,14 @@ export const useUpdateMerch = () => {
     }: {
       locale: string;
       merchData: UpdateMerchRequest;
-    }): Promise<ApiResponse<Merch>> => {
+    }): Promise<Merch> => {
       const response = await api.patch(`/merch/${locale}`, merchData);
       return response.data;
     },
     onSuccess: (data, variables) => {
       // Update merch in cache
-      queryClient.setQueryData([`merch-${variables.locale}`], data);
-      // Invalidate merch list
+      queryClient.setQueryData(["merch", variables.locale], data);
+      // Invalidate merch queries
       queryClient.invalidateQueries({ queryKey: ["merch"] });
     },
   });

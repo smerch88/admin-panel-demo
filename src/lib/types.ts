@@ -309,3 +309,20 @@ export interface UpdateStatsRequest {
   fedAnimals: number;
   providedWithElectricity: number;
 }
+
+// ===== MERCH TYPES =====
+
+// Merch interface
+export interface Merch {
+  locale: string;
+  status: "on" | "off";
+  content: string;
+  link: string;
+}
+
+// Update merch request
+export interface UpdateMerchRequest {
+  status: "on" | "off";
+  content: string;
+  link: string;
+}
