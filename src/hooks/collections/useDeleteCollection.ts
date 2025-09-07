@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { ApiResponse } from "@/lib/types";
 
 // Delete collection
 export const useDeleteCollection = () => {
@@ -13,7 +12,8 @@ export const useDeleteCollection = () => {
     }: {
       locale: string;
       id: string;
-    }): Promise<ApiResponse<{ message: string }>> => {
+      // Не повертає нічого, статус 204
+    }): Promise<void> => {
       const response = await api.delete(`/collections/${locale}/${id}`);
       return response.data;
     },

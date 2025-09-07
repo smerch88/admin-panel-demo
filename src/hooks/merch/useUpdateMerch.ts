@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { UpdateMerchRequest, Merch } from "@/lib/types";
+import { UpdateMerchRequest, UpdateMerchResponse } from "@/lib/types";
 
 // Update merch
 export const useUpdateMerch = () => {
@@ -13,7 +13,7 @@ export const useUpdateMerch = () => {
     }: {
       locale: string;
       merchData: UpdateMerchRequest;
-    }): Promise<Merch> => {
+    }): Promise<UpdateMerchResponse> => {
       const response = await api.patch(`/merch/${locale}`, merchData);
       return response.data;
     },
