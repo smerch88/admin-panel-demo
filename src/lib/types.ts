@@ -61,6 +61,7 @@ export interface UpdateUserRequest {
 
 // Image interface for collections
 export interface CollectionImage {
+  _id: string;
   url: string;
   path: string;
 }
@@ -92,7 +93,7 @@ export interface Collection {
   peopleDonate_title: string;
   desc: string;
   closedAt: string | null;
-  language: string;
+  language: "en" | "ua";
   collected_title: string;
   target_title: string;
   term: string | null;
@@ -169,9 +170,10 @@ export interface UpdateCollectionRequest {
 
 // Collection tag interface
 export interface CollectionTag {
-  id: string;
-  name: string;
-  color: string;
+  _id: string;
+  title: string;
+  language: "en" | "ua";
+  value: string;
 }
 
 // ===== REPORTS TYPES =====
@@ -241,14 +243,21 @@ export interface UpdatePartnerRequest {
 
 // Merch interface
 export interface Merch {
+  _id: string;
   status: "on" | "off";
   content: string;
   link: string;
-  locale: string;
+  locale: "ua" | "en";
 }
 
 // Update merch request
 export interface UpdateMerchRequest {
+  status: "on" | "off";
+  content: string;
+  link: string;
+}
+
+export interface UpdateMerchResponse {
   status: "on" | "off";
   content: string;
   link: string;
@@ -281,23 +290,6 @@ export interface UpdateStatsRequest {
   receivedMedications: number;
   fedAnimals: number;
   providedWithElectricity: number;
-}
-
-// ===== MERCH TYPES =====
-
-// Merch interface
-export interface Merch {
-  locale: string;
-  status: "on" | "off";
-  content: string;
-  link: string;
-}
-
-// Update merch request
-export interface UpdateMerchRequest {
-  status: "on" | "off";
-  content: string;
-  link: string;
 }
 
 // ===== TEAMMATES TYPES =====

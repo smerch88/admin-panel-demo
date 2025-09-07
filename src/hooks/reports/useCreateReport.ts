@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { CreateReportRequest, Report, ApiResponse } from "@/lib/types";
+import { CreateReportRequest, Report } from "@/lib/types";
 
 // Create report
 export const useCreateReport = () => {

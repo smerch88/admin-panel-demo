@@ -6,7 +6,7 @@ import { Teammate, TeammatesResponse } from "@/lib/types";
 export const useTeammates = (locale: string = "ua") => {
   return useQuery({
     queryKey: ["teammates", locale],
-    queryFn: async (): Promise<Teammate[]> => {
+    queryFn: async (): Promise<TeammatesResponse> => {
       const response = await api.get("/teammates", {
         params: { locale },
       });
@@ -24,14 +24,22 @@ export const useTeammates = (locale: string = "ua") => {
 
       // If it's already an array of teammates, return as is
       if (Array.isArray(data)) {
-        return data.map((teammate: Teammate) => ({
-          ...teammate,
-          locale: locale as "en" | "ua", // Add locale to each teammate
-        }));
+        // return data.map((teammate: Teammate) => ({
+        //   ...teammate,
+        //   locale: locale as "en" | "ua", // Add locale to each teammate
+        // }));
+        return {
+          locale: data[0].locale || locale,
+          teammates: data[0].teammates || data,
+        };
       }
 
       // Fallback: return empty array
-      return [];
+      // return [];
+      return {
+        locale: locale as "en" | "ua",
+        teammates: data,
+      };
     },
   });
 };

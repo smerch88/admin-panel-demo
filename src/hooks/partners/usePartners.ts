@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { Partner, ApiResponse } from "@/lib/types";
+import { Partner } from "@/lib/types";
 
 // Get all partners
 export const usePartners = () => {

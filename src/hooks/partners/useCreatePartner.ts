@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { CreatePartnerRequest, Partner, ApiResponse } from "@/lib/types";
+import { CreatePartnerRequest, Partner } from "@/lib/types";
 
 // Create partner
 export const useCreatePartner = () => {
