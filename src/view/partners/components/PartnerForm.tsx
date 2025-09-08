@@ -20,6 +20,7 @@ import {
 } from "@/lib/types";
 import { SafeImage } from "@/components/common";
 import { getImageUrl } from "@/lib/utils";
+import Image from "next/image";
 
 interface PartnerFormProps {
   partner?: Partner | null;
@@ -148,13 +149,12 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
 
           {previewImage && (
             <div className="mt-2">
-              <SafeImage
+              <Image
                 src={previewImage}
                 alt="Preview"
                 width={120}
                 height={80}
                 className="rounded border"
-                fallbackText="Preview"
               />
             </div>
           )}

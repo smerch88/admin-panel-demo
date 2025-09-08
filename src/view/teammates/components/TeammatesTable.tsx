@@ -48,7 +48,7 @@ export const TeammatesTable: React.FC<TeammatesTableProps> = ({
     );
   }
 
-  if (!teammates || teammates.teammates.length === 0) {
+  if (!teammates || teammates.length === 0) {
     return (
       <div className="bg-white rounded-lg shadow">
         <div className="p-6 text-center">
@@ -64,7 +64,7 @@ export const TeammatesTable: React.FC<TeammatesTableProps> = ({
     <div className="bg-white rounded-lg shadow">
       <div className="p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Teammates ({teammates.teammates.length})
+          Teammates ({teammates.length})
         </h3>
 
         <div className="overflow-x-auto">
@@ -80,7 +80,7 @@ export const TeammatesTable: React.FC<TeammatesTableProps> = ({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {teammates.teammates.map((teammate: Teammate) => (
+              {teammates.map((teammate: Teammate) => (
                 <TableRow key={teammate._id}>
                   <TableCell>
                     {(() => {
