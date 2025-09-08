@@ -15,6 +15,7 @@ import { Eye, Edit, Trash2, ExternalLink } from "lucide-react";
 import { Partner } from "@/lib/types";
 import { SafeImage } from "@/components/common";
 import { getImageUrl, isValidImageUrl } from "@/lib/utils";
+import Image from "next/image";
 
 interface PartnersTableProps {
   locale: string;
@@ -86,30 +87,12 @@ export const PartnersTable: React.FC<PartnersTableProps> = ({
               {filteredPartners.map((partner: Partner) => (
                 <TableRow key={partner._id}>
                   <TableCell>
-                    {(() => {
-                      const imageUrl = getImageUrl(partner.image);
-
-                      if (imageUrl && isValidImageUrl(imageUrl)) {
-                        return (
-                          <SafeImage
-                            src={imageUrl}
-                            alt={partner.logo}
-                            width={60}
-                            height={40}
-                            className="rounded"
-                            fallbackText="No img"
-                          />
-                        );
-                      } else {
-                        return (
-                          <div className="w-15 h-10 bg-gray-200 rounded border flex items-center justify-center">
-                            <span className="text-gray-400 text-xs">
-                              No img
-                            </span>
-                          </div>
-                        );
-                      }
-                    })()}
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${partner.image[0].path}`}
+                      alt={partner.logo}
+                      width={60}
+                      height={60}
+                    />
                   </TableCell>
                   <TableCell className="font-medium">{partner.logo}</TableCell>
                   <TableCell>

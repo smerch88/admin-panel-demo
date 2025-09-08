@@ -6,6 +6,7 @@ import { ExternalLink, Globe, Building, Link } from "lucide-react";
 import { Partner } from "@/lib/types";
 import { SafeImage } from "@/components/common";
 import { getImageUrl, isValidImageUrl } from "@/lib/utils";
+import Image from "next/image";
 
 interface PartnerDetailsProps {
   partner: Partner;
@@ -64,28 +65,12 @@ export const PartnerDetails: React.FC<PartnerDetailsProps> = ({ partner }) => {
               <p className="text-sm font-medium text-gray-500 mb-2">
                 Partner Image
               </p>
-              {(() => {
-                const imageUrl = getImageUrl(partner.image);
-
-                if (imageUrl && isValidImageUrl(imageUrl)) {
-                  return (
-                    <SafeImage
-                      src={imageUrl}
-                      alt={partner.logo}
-                      width={200}
-                      height={150}
-                      className="rounded border"
-                      fallbackText="No image"
-                    />
-                  );
-                } else {
-                  return (
-                    <div className="w-50 h-38 bg-gray-200 rounded border flex items-center justify-center">
-                      <span className="text-gray-400 text-sm">No image</span>
-                    </div>
-                  );
-                }
-              })()}
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${partner.image[0].path}`}
+                alt={partner.logo}
+                width={200}
+                height={150}
+              />
             </div>
           </div>
         </div>

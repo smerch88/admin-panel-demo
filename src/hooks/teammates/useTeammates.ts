@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
-import { Teammate, TeammatesResponse } from "@/lib/types";
+import { Teammate } from "@/lib/types";
 
 // Get teammates by locale
 export const useTeammates = (locale: string = "ua") => {
   return useQuery({
     queryKey: ["teammates", locale],
-    queryFn: async (): Promise<TeammatesResponse> => {
+    queryFn: async (): Promise<Teammate[]> => {
       const response = await api.get("/teammates", {
         params: { locale },
       });
@@ -24,22 +24,14 @@ export const useTeammates = (locale: string = "ua") => {
 
       // If it's already an array of teammates, return as is
       if (Array.isArray(data)) {
-        // return data.map((teammate: Teammate) => ({
-        //   ...teammate,
-        //   locale: locale as "en" | "ua", // Add locale to each teammate
-        // }));
-        return {
-          locale: data[0].locale || locale,
-          teammates: data[0].teammates || data,
-        };
+        return data.map((teammate: Teammate) => ({
+          ...teammate,
+          locale: locale as "en" | "ua", // Add locale to each teammate
+        }));
       }
 
       // Fallback: return empty array
-      // return [];
-      return {
-        locale: locale as "en" | "ua",
-        teammates: data,
-      };
+      return [];
     },
   });
 };

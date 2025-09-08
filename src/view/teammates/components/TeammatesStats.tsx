@@ -30,7 +30,7 @@ export const TeammatesStats: React.FC<TeammatesStatsProps> = ({ locale }) => {
     );
   }
 
-  const totalTeammates = teammates?.teammates.length || 0;
+  const totalTeammates = teammates?.length || 0;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
