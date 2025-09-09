@@ -14,9 +14,8 @@ export const PartnersHeader: React.FC<PartnersHeaderProps> = ({
     <div className="flex items-center space-x-4">
       <Button onClick={onCreatePartner} className="flex items-center space-x-2">
         <Plus className="h-4 w-4" />
-        <span>Add Partner</span>
+        <span>Додати партнера</span>
       </Button>
     </div>
   );
 };
-

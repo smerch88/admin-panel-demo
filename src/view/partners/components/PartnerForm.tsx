@@ -118,7 +118,7 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="image">
-            Partner Image{" "}
+            Зображення партнера{" "}
             {!isEditing && <span className="text-red-500">*</span>}
           </Label>
           <div className="flex items-center space-x-4">
@@ -142,7 +142,7 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
                 className="flex items-center space-x-1"
               >
                 <X className="h-4 w-4" />
-                <span>Remove</span>
+                <span>Видалити</span>
               </Button>
             )}
           </div>
@@ -161,7 +161,7 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="logo">Organization Name *</Label>
+          <Label htmlFor="logo">Назва організації *</Label>
           <Input
             id="logo"
             type="text"
@@ -173,12 +173,12 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
             disabled={isLoading}
           />
           <p className="text-xs text-gray-500">
-            {formData.logo.length}/128 characters
+            {formData.logo.length}/128 символи
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="link">Website Link *</Label>
+          <Label htmlFor="link">Посилання на вебсайт *</Label>
           <Input
             id="link"
             type="url"
@@ -190,12 +190,12 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
             disabled={isLoading}
           />
           <p className="text-xs text-gray-500">
-            {formData.link.length}/512 characters
+            {formData.link.length}/512 символи
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="language">Language *</Label>
+          <Label htmlFor="language">Мова *</Label>
           <Select
             value={formData.language}
             onValueChange={(value: "ua" | "en") =>
@@ -230,12 +230,12 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {isEditing ? "Updating..." : "Creating..."}
+              {isEditing ? "Оновлення..." : "Створення..."}
             </>
           ) : isEditing ? (
-            "Update Partner"
+            "Оновити партнера"
           ) : (
-            "Create Partner"
+            "Створити партнера"
           )}
         </Button>
       </div>

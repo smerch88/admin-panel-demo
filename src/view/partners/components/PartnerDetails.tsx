@@ -20,7 +20,7 @@ export const PartnerDetails: React.FC<PartnerDetailsProps> = ({ partner }) => {
           <div className="flex items-center space-x-2">
             <Building className="h-5 w-5 text-gray-400" />
             <div>
-              <p className="text-sm font-medium text-gray-500">Organization</p>
+              <p className="text-sm font-medium text-gray-500">Організація</p>
               <p className="text-lg font-semibold">{partner.logo}</p>
             </div>
           </div>
@@ -28,7 +28,7 @@ export const PartnerDetails: React.FC<PartnerDetailsProps> = ({ partner }) => {
           <div className="flex items-center space-x-2">
             <Globe className="h-5 w-5 text-gray-400" />
             <div>
-              <p className="text-sm font-medium text-gray-500">Language</p>
+              <p className="text-sm font-medium text-gray-500">Мова</p>
               <Badge variant="outline" className="text-sm">
                 {partner.language}
               </Badge>
@@ -39,7 +39,7 @@ export const PartnerDetails: React.FC<PartnerDetailsProps> = ({ partner }) => {
             <Link className="h-5 w-5 text-gray-400 mt-1" />
             <div className="flex-1">
               <p className="text-sm font-medium text-gray-500 mb-2">
-                Website Link
+                Посилання на веб-сайт
               </p>
               <div className="flex items-center space-x-2">
                 <p className="text-sm text-gray-700 break-all">
@@ -63,7 +63,7 @@ export const PartnerDetails: React.FC<PartnerDetailsProps> = ({ partner }) => {
             <Building className="h-5 w-5 text-gray-400 mt-1" />
             <div className="flex-1">
               <p className="text-sm font-medium text-gray-500 mb-2">
-                Partner Image
+                Зображення партнера
               </p>
               <Image
                 src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${partner.image[0].path}`}
@@ -79,11 +79,11 @@ export const PartnerDetails: React.FC<PartnerDetailsProps> = ({ partner }) => {
       <div className="pt-4 border-t">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">Partner ID</p>
+            <p className="text-sm text-gray-500">Партнер ID</p>
             <p className="text-sm font-mono text-gray-700">{partner._id}</p>
           </div>
           <div className="text-right">
-            <p className="text-sm text-gray-500">Created</p>
+            <p className="text-sm text-gray-500">Створено</p>
             <p className="text-sm text-gray-700">
               {partner.createdAt
                 ? new Date(partner.createdAt).toLocaleDateString()
