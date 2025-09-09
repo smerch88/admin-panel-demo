@@ -37,22 +37,22 @@ export const UsersStats: React.FC = () => {
 
   const stats = [
     {
-      title: "Total Users",
+      title: "Усього користувачів",
       value: totalUsers,
       icon: Users,
-      description: "All registered users",
+      description: "Всі зареєстровані користувачі",
     },
     {
-      title: "Admins",
+      title: "Адміністратори",
       value: adminUsers,
       icon: Shield,
-      description: "Administrator users",
+      description: "Користувачі-адміністратори",
     },
     {
-      title: "Editors",
+      title: "Редактори",
       value: editorUsers,
       icon: Edit,
-      description: "Editor users",
+      description: "Користувачі-редактори",
     },
   ];
 

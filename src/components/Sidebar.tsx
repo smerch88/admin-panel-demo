@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 
 const navigation = [
-  // { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Збори", href: "/collections", icon: FolderOpen },
   { name: "Звіти", href: "/reports", icon: FileText },
   { name: "Партнери", href: "/partners", icon: Users },
@@ -125,7 +124,7 @@ export function Sidebar() {
           className="w-full justify-start"
         >
           <LogOut className="mr-3 h-5 w-5" />
-          {logout.isPending ? "Logging out..." : "Logout"}
+          {logout.isPending ? "Вихід із системи..." : "Вийти"}
         </Button>
       </div>
     </div>

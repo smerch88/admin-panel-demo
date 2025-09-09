@@ -78,8 +78,8 @@ export default function UsersView() {
       <div className="p-6">
         <div className="max-w-7xl mx-auto space-y-6">
           <PageHeader
-            title="Users Management"
-            description="Manage admin and editor users for the system"
+            title="Управління користувачами"
+            description="Керуйте адміністраторами та редакторами системи"
           />
 
           <UsersHeader onCreate={handleCreate} />
