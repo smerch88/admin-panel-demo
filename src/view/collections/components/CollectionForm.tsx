@@ -198,16 +198,16 @@ export function CollectionForm({
       {/* Basic Information Section */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold border-b pb-2">
-          Basic Information
+          Основна інформація
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <Label htmlFor="title">Title * (max 48 chars)</Label>
+            <Label htmlFor="title">Заголовок * (Максимум 48 символів )</Label>
             <Input
               id="title"
               {...register("title")}
-              placeholder="Collection title"
+              placeholder="Назва збору"
               maxLength={48}
               className={errors.title ? "border-red-500" : ""}
             />
@@ -219,11 +219,13 @@ export function CollectionForm({
           </div>
 
           <div>
-            <Label htmlFor="alt">Alt Text * (max 24 chars)</Label>
+            <Label htmlFor="alt">
+              Альтернативний текст * (Максимум 24 символи)
+            </Label>
             <Input
               id="alt"
               {...register("alt")}
-              placeholder="Alt text for image"
+              placeholder="Альтернативний текст для зображення"
               maxLength={24}
               className={errors.alt ? "border-red-500" : ""}
             />
@@ -234,11 +236,11 @@ export function CollectionForm({
         </div>
 
         <div>
-          <Label htmlFor="desc">Description * (max 144 chars)</Label>
+          <Label htmlFor="desc">Опис * (Максимум 144 символи)</Label>
           <Textarea
             id="desc"
             {...register("desc")}
-            placeholder="Short description"
+            placeholder="Короткий опис"
             maxLength={144}
             className={errors.desc ? "border-red-500" : ""}
           />
@@ -251,12 +253,12 @@ export function CollectionForm({
       {/* Financial Information Section */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold border-b pb-2">
-          Financial Information
+          Фінансова інформація
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <Label htmlFor="collected">Collected Amount *</Label>
+            <Label htmlFor="collected">Зібрана сума *</Label>
             <Input
               id="collected"
               type="number"
@@ -273,7 +275,7 @@ export function CollectionForm({
           </div>
 
           <div>
-            <Label htmlFor="target">Target Amount *</Label>
+            <Label htmlFor="target">Цільова сума *</Label>
             <Input
               id="target"
               type="number"
@@ -290,7 +292,7 @@ export function CollectionForm({
           </div>
 
           <div>
-            <Label htmlFor="peopleDonate">People Donated *</Label>
+            <Label htmlFor="peopleDonate">Кількість донорів *</Label>
             <Input
               id="peopleDonate"
               type="number"
@@ -308,7 +310,7 @@ export function CollectionForm({
         </div>
 
         <div>
-          <Label htmlFor="peopleDonate_title">People Donated Title *</Label>
+          <Label htmlFor="peopleDonate_title">Назва кількості донорів *</Label>
           <Select
             value={watchedValues.peopleDonate_title}
             onValueChange={value => setValue("peopleDonate_title", value)}
@@ -337,12 +339,12 @@ export function CollectionForm({
       {/* Campaign Settings Section */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold border-b pb-2">
-          Campaign Settings
+          Налаштування кампанії
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <Label htmlFor="days">Days</Label>
+            <Label htmlFor="days">Дні</Label>
             <Input
               id="days"
               type="number"
@@ -357,7 +359,7 @@ export function CollectionForm({
           </div>
 
           <div>
-            <Label htmlFor="period">Period *</Label>
+            <Label htmlFor="period">Період *</Label>
             <Select
               value={watchedValues.period}
               onValueChange={value => setValue("period", value)}
@@ -381,7 +383,7 @@ export function CollectionForm({
           </div>
 
           <div>
-            <Label htmlFor="status">Status</Label>
+            <Label htmlFor="status">Статус</Label>
             <Select
               value={watchedValues.status}
               onValueChange={(value: "active" | "closed") =>
@@ -392,14 +394,14 @@ export function CollectionForm({
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="active">Active</SelectItem>
-                <SelectItem value="closed">Closed</SelectItem>
+                <SelectItem value="active">Активні</SelectItem>
+                <SelectItem value="closed">Закриті</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <Label htmlFor="importance">Importance *</Label>
+            <Label htmlFor="importance">Важливість *</Label>
             <Select
               value={watchedValues.importance}
               onValueChange={(
@@ -412,10 +414,10 @@ export function CollectionForm({
                 <SelectValue placeholder="Select importance" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="urgent">Urgent</SelectItem>
-                <SelectItem value="important">Important</SelectItem>
-                <SelectItem value="non-urgent">Non-urgent</SelectItem>
-                <SelectItem value="permanent">Permanent</SelectItem>
+                <SelectItem value="urgent">Терміново</SelectItem>
+                <SelectItem value="important">Важливо</SelectItem>
+                <SelectItem value="non-urgent">Не терміново</SelectItem>
+                <SelectItem value="permanent">Постійно</SelectItem>
               </SelectContent>
             </Select>
             {errors.importance && (
@@ -428,7 +430,7 @@ export function CollectionForm({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <Label htmlFor="quantity">Quantity</Label>
+            <Label htmlFor="quantity">Кількість</Label>
             <Input
               id="quantity"
               type="number"
@@ -445,11 +447,11 @@ export function CollectionForm({
           </div>
 
           <div>
-            <Label htmlFor="value">Value * (max 48 chars)</Label>
+            <Label htmlFor="value">Значення * (Максимум 48 символів)</Label>
             <Input
               id="value"
               {...register("value")}
-              placeholder="Unique tag for same collections across languages"
+              placeholder="Унікальний тег для однакових зборів різними мовами"
               maxLength={48}
               className={errors.value ? "border-red-500" : ""}
             />
@@ -464,10 +466,13 @@ export function CollectionForm({
 
       {/* Images Section */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold border-b pb-2">Images</h3>
+        <h3 className="text-lg font-semibold border-b pb-2">Зображення</h3>
 
         <div>
-          <Label htmlFor="image">Upload Image {!isEditing && "*"}</Label>
+          <Label htmlFor="image">
+            Завантажити зображення
+            {!isEditing && "*"}
+          </Label>
           <Input
             id="image"
             type="file"
@@ -483,16 +488,16 @@ export function CollectionForm({
         {/* Display current images when editing */}
         {isEditing && currentImages.length > 0 && (
           <div>
-            <p className="text-sm text-gray-600 mb-2">Current images:</p>
+            <p className="text-sm text-gray-600 mb-2">Поточні зображення :</p>
             <div className="flex flex-wrap gap-2">
               {currentImages.map((img, index) => (
-                <div key={index} className="relative">
+                <div key={index} className="relative w-[64px] h-[64px]">
                   <Image
-                    src={img.url}
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${img.path}`}
                     alt={`Image ${index + 1}`}
                     width={64}
                     height={64}
-                    className="object-cover rounded border"
+                    className="object-cover rounded border absolute w-full h-full top-0 right-0 bottom-0 left-0 object-cover object-center"
                   />
                   <button
                     type="button"
@@ -510,7 +515,9 @@ export function CollectionForm({
         {/* Display selected new image */}
         {selectedImage && (
           <div>
-            <p className="text-sm text-gray-600 mb-2">Selected new image:</p>
+            <p className="text-sm text-gray-600 mb-2">
+              Вибране нове зображення :
+            </p>
             <div className="flex flex-wrap gap-2">
               <div className="relative">
                 <Image
@@ -537,7 +544,7 @@ export function CollectionForm({
       <div className="space-y-4">
         <div className="flex items-center justify-between border-b pb-2">
           <h3 className="text-lg font-semibold">
-            Long Description * (min 1 section)
+            Довгий опис * (щонайменше 1 розділ)
           </h3>
           <Button
             type="button"
@@ -546,18 +553,18 @@ export function CollectionForm({
             onClick={addLongDescSection}
           >
             <Plus className="h-4 w-4 mr-2" />
-            Add Section
+            Додати розділ
           </Button>
         </div>
 
         {watchedValues.long_desc.map((desc, index) => (
           <div key={index} className="flex items-start space-x-2">
             <div className="flex-1">
-              <Label htmlFor={`long_desc_${index}`}>Section {index + 1}</Label>
+              <Label htmlFor={`long_desc_${index}`}>Розділ {index + 1}</Label>
               <Textarea
                 id={`long_desc_${index}`}
                 {...register(`long_desc.${index}`)}
-                placeholder={`Section ${index + 1} description`}
+                placeholder={`Опис ${index + 1} розділу`}
                 className={errors.long_desc?.[index] ? "border-red-500" : ""}
               />
               {errors.long_desc?.[index] && (
@@ -588,14 +595,14 @@ export function CollectionForm({
       {/* Form Actions */}
       <div className="flex justify-end space-x-3 pt-4 border-t">
         <Button type="button" variant="outline" onClick={onCancel}>
-          Cancel
+          Скасувати
         </Button>
         <Button type="submit" disabled={isLoading}>
           {isLoading
-            ? "Saving..."
+            ? "Збереження..."
             : isEditing
-              ? "Update Collection"
-              : "Create Collection"}
+              ? "Оновити збір"
+              : "Створити збір"}
         </Button>
       </div>
     </form>

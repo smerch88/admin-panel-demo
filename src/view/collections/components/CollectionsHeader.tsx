@@ -18,8 +18,8 @@ export const CollectionsHeader: React.FC<CollectionsHeaderProps> = ({
 }) => {
   return (
     <PageHeader
-      title="Collections"
-      description="Manage your fundraising collections and campaigns"
+      title="Збори"
+      description="Керуйте своїми зборами коштів та кампаніями"
     >
       <LocaleSwitcher
         selectedLocale={selectedLocale}
@@ -27,7 +27,7 @@ export const CollectionsHeader: React.FC<CollectionsHeaderProps> = ({
       />
       <Button onClick={onCreate} className="flex items-center space-x-2">
         <Plus className="h-4 w-4" />
-        <span>Create Collection</span>
+        <span>Створити збір</span>
       </Button>
     </PageHeader>
   );

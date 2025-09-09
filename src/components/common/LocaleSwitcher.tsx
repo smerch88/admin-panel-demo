@@ -11,7 +11,7 @@ export const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({
   selectedLocale,
   onLocaleChange,
   locales = ["ua", "en"],
-  label = "Language:",
+  label = "Мова:",
 }) => {
   return (
     <div className="flex items-center space-x-2">

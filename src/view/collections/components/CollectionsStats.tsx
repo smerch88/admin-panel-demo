@@ -21,21 +21,21 @@ export const CollectionsStats: React.FC<CollectionsStatsProps> = ({
 
   const stats = [
     {
-      title: "Total Collections",
+      title: "Всього зборів",
       value: totalCollections,
     },
     {
-      title: "Active Collections",
+      title: "Активні збори",
       value: activeCollections,
       color: "green" as const,
     },
     {
-      title: "Closed Collections",
+      title: "Закриті збори",
       value: closedCollections,
       color: "red" as const,
     },
     {
-      title: "Total Raised",
+      title: "Загальна сума зібраного",
       value: `$${totalRaised.toLocaleString()}`,
       color: "blue" as const,
     },

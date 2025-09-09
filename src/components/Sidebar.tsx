@@ -19,13 +19,13 @@ import {
 
 const navigation = [
   // { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { name: "Collections", href: "/collections", icon: FolderOpen },
-  { name: "Reports", href: "/reports", icon: FileText },
-  { name: "Partners", href: "/partners", icon: Users },
-  { name: "Merch", href: "/merch", icon: ShoppingBag },
-  { name: "Teammates", href: "/teammates", icon: UserCheck },
-  { name: "Stats", href: "/stats", icon: BarChart3 },
-  { name: "Users", href: "/users", icon: Settings },
+  { name: "Збори", href: "/collections", icon: FolderOpen },
+  { name: "Звіти", href: "/reports", icon: FileText },
+  { name: "Партнери", href: "/partners", icon: Users },
+  { name: "Мерч", href: "/merch", icon: ShoppingBag },
+  { name: "Команда", href: "/teammates", icon: UserCheck },
+  { name: "Статистика", href: "/stats", icon: BarChart3 },
+  { name: "Користувачі", href: "/users", icon: Settings },
 ];
 
 export function Sidebar() {
@@ -54,7 +54,7 @@ export function Sidebar() {
     <div className="flex h-screen w-64 flex-col bg-white border-r border-gray-200">
       {/* Logo */}
       <div className="flex h-16 items-center justify-center border-b border-gray-200">
-        <h1 className="text-xl font-bold text-gray-900">Inharmony Admin</h1>
+        <h1 className="text-xl font-bold text-gray-900">ІнХармоні.ЮА</h1>
       </div>
 
       {/* User Profile */}

@@ -56,7 +56,10 @@ export const SafeImage: React.FC<SafeImageProps> = ({
         alt={alt}
         width={width}
         height={height}
-        className={cn("object-cover rounded border", className)}
+        className={cn(
+          "object-cover rounded border absolute w-full h-full top-0 right-0 bottom-0 left-0 object-cover object-center",
+          className
+        )}
         onError={e => {
           console.error("Image loading error:", src, e);
           setHasError(true);
