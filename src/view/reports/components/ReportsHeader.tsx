@@ -14,7 +14,7 @@ export const ReportsHeader: React.FC<ReportsHeaderProps> = ({
     <div className="flex items-center space-x-4">
       <Button onClick={onCreateReport} className="flex items-center space-x-2">
         <Plus className="h-4 w-4" />
-        <span>Add Report</span>
+        <span>Додати звіт</span>
       </Button>
     </div>
   );

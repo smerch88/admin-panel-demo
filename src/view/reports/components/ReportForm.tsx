@@ -98,7 +98,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="year">Year</Label>
+          <Label htmlFor="year">Рік</Label>
           <Input
             id="year"
             type="text"
@@ -111,14 +111,14 @@ export const ReportForm: React.FC<ReportFormProps> = ({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="month">Month</Label>
+          <Label htmlFor="month">Місяць</Label>
           <Select
             value={formData.month}
             onValueChange={value => setFormData({ ...formData, month: value })}
             disabled={isLoading}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Select month" />
+              <SelectValue placeholder="Обрати місяць" />
             </SelectTrigger>
             <SelectContent>
               {MONTHS.map(month => (
@@ -132,7 +132,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="url">Report URL</Label>
+        <Label htmlFor="url">Посилання на звіт</Label>
         <Input
           id="url"
           type="url"
@@ -145,7 +145,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="language">Language</Label>
+        <Label htmlFor="language">Мова</Label>
         <Select
           value={formData.language}
           onValueChange={(value: "ua" | "en") =>
@@ -154,7 +154,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({
           disabled={isLoading}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select language" />
+            <SelectValue placeholder="Обрати мову" />
           </SelectTrigger>
           <SelectContent>
             {LANGUAGES.map(lang => (
@@ -173,18 +173,18 @@ export const ReportForm: React.FC<ReportFormProps> = ({
           onClick={onCancel}
           disabled={isLoading}
         >
-          Cancel
+          Скасувати
         </Button>
         <Button type="submit" disabled={isLoading}>
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {isEditing ? "Updating..." : "Creating..."}
+              {isEditing ? "Оновлення..." : "Створення..."}
             </>
           ) : isEditing ? (
-            "Update Report"
+            "Оновити звіт"
           ) : (
-            "Create Report"
+            "Створити звіт"
           )}
         </Button>
       </div>

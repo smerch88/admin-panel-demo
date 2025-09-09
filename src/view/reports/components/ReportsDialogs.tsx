@@ -65,9 +65,9 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
       <Dialog open={isCreateOpen} onOpenChange={onCloseCreate}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Create New Report</DialogTitle>
+            <DialogTitle>Створити новий звіт</DialogTitle>
             <DialogDescription>
-              Add a new monthly report to the system.
+              Додайте новий щомісячний звіт до системи.
             </DialogDescription>
           </DialogHeader>
           <ReportForm onSuccess={handleFormSuccess} onCancel={onCloseCreate} />
@@ -78,10 +78,8 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
       <Dialog open={isEditOpen} onOpenChange={onCloseEdit}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Edit Report</DialogTitle>
-            <DialogDescription>
-              Update the report information.
-            </DialogDescription>
+            <DialogTitle>Редагувати звіт</DialogTitle>
+            <DialogDescription>Оновіть інформацію звіту.</DialogDescription>
           </DialogHeader>
           <ReportForm
             report={selectedReport}
@@ -95,9 +93,9 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
       <Dialog open={isViewOpen} onOpenChange={onCloseView}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Report Details</DialogTitle>
+            <DialogTitle>Деталі звіту</DialogTitle>
             <DialogDescription>
-              View detailed information about the report.
+              Перегляньте детальну інформацію про звіт.
             </DialogDescription>
           </DialogHeader>
           {selectedReport && (
@@ -111,7 +109,7 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
                     onEdit(selectedReport);
                   }}
                 >
-                  Edit Report
+                  Редагувати звіт
                 </Button>
                 <Button
                   variant="destructive"
@@ -120,7 +118,7 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
                     onDelete(selectedReport);
                   }}
                 >
-                  Delete Report
+                  Видалити звіт
                 </Button>
               </div>
             </div>
@@ -134,11 +132,11 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2">
               <AlertTriangle className="h-5 w-5 text-red-500" />
-              <span>Delete Report</span>
+              <span>Видалити звіт</span>
             </DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete this report? This action cannot be
-              undone.
+              Ви впевнені, що хочете видалити цей звіт? Цю дію неможливо
+              скасувати.
             </DialogDescription>
           </DialogHeader>
 
@@ -148,7 +146,8 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
                 {selectedReport.month} {selectedReport.year}
               </p>
               <p className="text-sm text-gray-600">
-                Language: {selectedReport.language} | Type: {selectedReport.type} | Status: {selectedReport.status}
+                Мова: {selectedReport.language} | Тип: {selectedReport.type} |
+                Статус: {selectedReport.status}
               </p>
             </div>
           )}
@@ -159,7 +158,7 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
               onClick={onCloseDelete}
               disabled={deleteReport.isPending}
             >
-              Cancel
+              Скасувати
             </Button>
             <Button
               variant="destructive"
@@ -169,10 +168,10 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
               {deleteReport.isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Deleting...
+                  Видалення...
                 </>
               ) : (
-                "Delete Report"
+                "Видалити звіт"
               )}
             </Button>
           </div>
