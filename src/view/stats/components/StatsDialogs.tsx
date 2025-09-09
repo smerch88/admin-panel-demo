@@ -132,7 +132,12 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
   const isLoading = updateStats.isPending;
 
   return (
-    <Dialog open={isEditDialogOpen} onOpenChange={handleClose}>
+    <Dialog
+      open={isEditDialogOpen}
+      onOpenChange={open => {
+        if (!open) handleClose();
+      }}
+    >
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Edit Statistics</DialogTitle>
@@ -210,4 +215,3 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
     </Dialog>
   );
 };
-
