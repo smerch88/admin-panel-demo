@@ -89,14 +89,16 @@ export const MerchModal: React.FC<MerchModalProps> = ({
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>
-            {merchData ? "Edit Merch Settings" : "Create Merch Settings"}
+            {merchData
+              ? "Редагувати налаштування мерчу"
+              : "Створити налаштування мерчу"}
           </DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="status">Status *</Label>
+              <Label htmlFor="status">Статус *</Label>
               <Select
                 value={formData.status}
                 onValueChange={(value: "on" | "off") =>
@@ -108,17 +110,17 @@ export const MerchModal: React.FC<MerchModalProps> = ({
                   <SelectValue placeholder="Select status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="on">Enabled</SelectItem>
-                  <SelectItem value="off">Disabled</SelectItem>
+                  <SelectItem value="on">Увімкнено</SelectItem>
+                  <SelectItem value="off">Вимкнено</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-xs text-gray-500">
-                When enabled, the merch button will be visible to users
+                Коли увімкнено, кнопка мерчу буде видимою для користувачів.
               </p>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="content">Button Content *</Label>
+              <Label htmlFor="content">Вміст кнопки *</Label>
               <Input
                 id="content"
                 type="text"
@@ -132,12 +134,12 @@ export const MerchModal: React.FC<MerchModalProps> = ({
                 disabled={isLoading}
               />
               <p className="text-xs text-gray-500">
-                {formData.content.length}/100 characters
+                {formData.content.length}/100 символи
               </p>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="link">Merch Link *</Label>
+              <Label htmlFor="link">Посилання на мерч *</Label>
               <Input
                 id="link"
                 type="url"
@@ -151,7 +153,7 @@ export const MerchModal: React.FC<MerchModalProps> = ({
                 disabled={isLoading}
               />
               <p className="text-xs text-gray-500">
-                {formData.link.length}/512 characters
+                {formData.link.length}/512 символи
               </p>
             </div>
           </div>
@@ -165,7 +167,7 @@ export const MerchModal: React.FC<MerchModalProps> = ({
               className="flex items-center space-x-2"
             >
               <X className="h-4 w-4" />
-              <span>Cancel</span>
+              <span>Скасувати</span>
             </Button>
             <Button
               type="submit"
@@ -175,12 +177,12 @@ export const MerchModal: React.FC<MerchModalProps> = ({
               {isLoading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>Saving...</span>
+                  <span>Збереження...</span>
                 </>
               ) : (
                 <>
                   <Save className="h-4 w-4" />
-                  <span>Save Changes</span>
+                  <span>Зберегти зміни</span>
                 </>
               )}
             </Button>

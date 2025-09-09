@@ -50,20 +50,20 @@ export const CollectionsTable: React.FC<CollectionsTableProps> = ({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Collections ({selectedLocale.toUpperCase()})</CardTitle>
+        <CardTitle>Збори ({selectedLocale.toUpperCase()})</CardTitle>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Image</TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Type</TableHead>
-              <TableHead>Collected</TableHead>
-              <TableHead>Target</TableHead>
-              <TableHead>Days Left</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead>Зображення</TableHead>
+              <TableHead>Назва</TableHead>
+              <TableHead>Статус</TableHead>
+              <TableHead>Тип</TableHead>
+              <TableHead>Зібрано</TableHead>
+              <TableHead>Ціль</TableHead>
+              <TableHead>Залишилось днів</TableHead>
+              <TableHead>Дії</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

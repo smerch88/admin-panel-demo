@@ -17,7 +17,7 @@ export const ReportDetails: React.FC<ReportDetailsProps> = ({ report }) => {
           <div className="flex items-center space-x-2">
             <Calendar className="h-5 w-5 text-gray-400" />
             <div>
-              <p className="text-sm font-medium text-gray-500">Year</p>
+              <p className="text-sm font-medium text-gray-500">Рік</p>
               <p className="text-lg font-semibold">{report.year}</p>
             </div>
           </div>
@@ -25,42 +25,42 @@ export const ReportDetails: React.FC<ReportDetailsProps> = ({ report }) => {
           <div className="flex items-center space-x-2">
             <Calendar className="h-5 w-5 text-gray-400" />
             <div>
-              <p className="text-sm font-medium text-gray-500">Month</p>
+              <p className="text-sm font-medium text-gray-500">Місяць</p>
               <Badge variant="secondary" className="text-sm">
                 {report.month}
               </Badge>
             </div>
           </div>
 
-           <div className="flex items-center space-x-2">
-             <Globe className="h-5 w-5 text-gray-400" />
-             <div>
-               <p className="text-sm font-medium text-gray-500">Language</p>
-               <Badge variant="outline" className="text-sm">
-                 {report.language}
-               </Badge>
-             </div>
-           </div>
+          <div className="flex items-center space-x-2">
+            <Globe className="h-5 w-5 text-gray-400" />
+            <div>
+              <p className="text-sm font-medium text-gray-500">Мова</p>
+              <Badge variant="outline" className="text-sm">
+                {report.language}
+              </Badge>
+            </div>
+          </div>
 
-           <div className="flex items-center space-x-2">
-             <FileText className="h-5 w-5 text-gray-400" />
-             <div>
-               <p className="text-sm font-medium text-gray-500">Type</p>
-               <Badge variant="secondary" className="text-sm">
-                 {report.type}
-               </Badge>
-             </div>
-           </div>
+          <div className="flex items-center space-x-2">
+            <FileText className="h-5 w-5 text-gray-400" />
+            <div>
+              <p className="text-sm font-medium text-gray-500">Тип</p>
+              <Badge variant="secondary" className="text-sm">
+                {report.type}
+              </Badge>
+            </div>
+          </div>
 
-           <div className="flex items-center space-x-2">
-             <FileText className="h-5 w-5 text-gray-400" />
-             <div>
-               <p className="text-sm font-medium text-gray-500">Status</p>
-               <Badge variant="outline" className="text-sm">
-                 {report.status}
-               </Badge>
-             </div>
-           </div>
+          <div className="flex items-center space-x-2">
+            <FileText className="h-5 w-5 text-gray-400" />
+            <div>
+              <p className="text-sm font-medium text-gray-500">Статус</p>
+              <Badge variant="outline" className="text-sm">
+                {report.status}
+              </Badge>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -68,7 +68,7 @@ export const ReportDetails: React.FC<ReportDetailsProps> = ({ report }) => {
             <FileText className="h-5 w-5 text-gray-400 mt-1" />
             <div className="flex-1">
               <p className="text-sm font-medium text-gray-500 mb-2">
-                Report URL
+                Посилання на звіт
               </p>
               <div className="flex items-center space-x-2">
                 <p className="text-sm text-gray-700 break-all">{report.url}</p>
@@ -89,11 +89,11 @@ export const ReportDetails: React.FC<ReportDetailsProps> = ({ report }) => {
       <div className="pt-4 border-t">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">Report ID</p>
+            <p className="text-sm text-gray-500">Звіт ID</p>
             <p className="text-sm font-mono text-gray-700">{report._id}</p>
           </div>
           <div className="text-right">
-            <p className="text-sm text-gray-500">Created</p>
+            <p className="text-sm text-gray-500">Створено</p>
             <p className="text-sm text-gray-700">
               {report.createdAt
                 ? new Date(report.createdAt).toLocaleDateString()

@@ -58,7 +58,7 @@ export const PartnersTable: React.FC<PartnersTableProps> = ({
       <div className="bg-white rounded-lg shadow">
         <div className="p-6 text-center">
           <p className="text-gray-500">
-            No partners found for {locale.toUpperCase()} language.
+            Партнерів для мови {locale.toUpperCase()} не знайдено.
           </p>
         </div>
       </div>
@@ -76,23 +76,40 @@ export const PartnersTable: React.FC<PartnersTableProps> = ({
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Image</TableHead>
-                <TableHead>Logo</TableHead>
-                <TableHead>Language</TableHead>
-                <TableHead>Link</TableHead>
-                <TableHead>Actions</TableHead>
+                <TableHead>Зображення</TableHead>
+                <TableHead>Логотип</TableHead>
+                <TableHead>Мова</TableHead>
+                <TableHead>Посилання</TableHead>
+                <TableHead>Дії</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filteredPartners.map((partner: Partner) => (
                 <TableRow key={partner._id}>
                   <TableCell>
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${partner.image[0].path}`}
-                      alt={partner.logo}
-                      width={60}
-                      height={60}
-                    />
+                    {(() => {
+                      const imageUrl = getImageUrl(partner.image);
+
+                      if (imageUrl && isValidImageUrl(imageUrl)) {
+                        return (
+                          <SafeImage
+                            src={imageUrl}
+                            alt={partner.logo}
+                            width={60}
+                            height={60}
+                            fallbackText="No img"
+                          />
+                        );
+                      } else {
+                        return (
+                          <div className="w-12 h-12 bg-gray-200 rounded border flex items-center justify-center">
+                            <span className="text-gray-400 text-xs">
+                              No img
+                            </span>
+                          </div>
+                        );
+                      }
+                    })()}
                   </TableCell>
                   <TableCell className="font-medium">{partner.logo}</TableCell>
                   <TableCell>

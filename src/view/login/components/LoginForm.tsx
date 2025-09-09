@@ -16,7 +16,7 @@ interface LoginFormProps {
 
 export const LoginForm: React.FC<LoginFormProps> = ({
   onSuccess,
-  redirectTo = "/dashboard",
+  redirectTo = "/collections",
 }) => {
   const router = useRouter();
   const login = useLogin();

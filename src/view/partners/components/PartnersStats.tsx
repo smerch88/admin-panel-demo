@@ -13,19 +13,19 @@ export const PartnersStats: React.FC<PartnersStatsProps> = ({ locale }) => {
 
   const stats = [
     {
-      title: "Total Partners",
+      title: "Усього партнерів",
       value: partners?.length || 0,
       color: "blue" as const,
     },
     {
-      title: "Current Language",
+      title: "Поточна мова",
       value:
         partners?.filter((partner: Partner) => partner.language === locale)
           .length || 0,
       color: "green" as const,
     },
     {
-      title: "With Images",
+      title: "Зі зображеннями",
       value:
         partners?.filter(
           (partner: Partner) =>
@@ -34,7 +34,7 @@ export const PartnersStats: React.FC<PartnersStatsProps> = ({ locale }) => {
       color: "red" as const,
     },
     {
-      title: "Language",
+      title: "Мова",
       value: locale.toUpperCase(),
       color: "default" as const,
     },
@@ -42,7 +42,7 @@ export const PartnersStats: React.FC<PartnersStatsProps> = ({ locale }) => {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-gray-900">Partners Overview</h3>
+      <h3 className="text-lg font-semibold text-gray-900">Огляд партнерів</h3>
       <StatsCards stats={stats} />
     </div>
   );

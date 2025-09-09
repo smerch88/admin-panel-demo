@@ -13,12 +13,12 @@ export const ReportsStats: React.FC<ReportsStatsProps> = ({ locale }) => {
 
   const stats = [
     {
-      title: "Total Reports",
+      title: "Усього звітів",
       value: reports?.length || 0,
       color: "blue" as const,
     },
     {
-      title: "Current Year",
+      title: "Поточний рік",
       value:
         reports?.filter(
           (report: Report) =>
@@ -27,7 +27,7 @@ export const ReportsStats: React.FC<ReportsStatsProps> = ({ locale }) => {
       color: "green" as const,
     },
     {
-      title: "This Month",
+      title: "Цього місяця",
       value:
         reports?.filter((report: Report) => {
           const currentMonth = new Date().toLocaleString("default", {
@@ -41,7 +41,7 @@ export const ReportsStats: React.FC<ReportsStatsProps> = ({ locale }) => {
       color: "red" as const,
     },
     {
-      title: "Language",
+      title: "Мова",
       value: locale.toUpperCase(),
       color: "default" as const,
     },
@@ -49,7 +49,7 @@ export const ReportsStats: React.FC<ReportsStatsProps> = ({ locale }) => {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-gray-900">Reports Overview</h3>
+      <h3 className="text-lg font-semibold text-gray-900">Огляд звітів</h3>
       <StatsCards stats={stats} />
     </div>
   );

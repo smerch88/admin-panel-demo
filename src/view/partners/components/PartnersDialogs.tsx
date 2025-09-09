@@ -65,9 +65,9 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
       <Dialog open={isCreateOpen} onOpenChange={onCloseCreate}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Create New Partner</DialogTitle>
+            <DialogTitle>Створити нового партнера</DialogTitle>
             <DialogDescription>
-              Add a new partner organization to the system.
+              Додайте нову партнерську організацію до системи.
             </DialogDescription>
           </DialogHeader>
           <PartnerForm onSuccess={handleFormSuccess} onCancel={onCloseCreate} />
@@ -78,9 +78,9 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
       <Dialog open={isEditOpen} onOpenChange={onCloseEdit}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Edit Partner</DialogTitle>
+            <DialogTitle>Редагувати партнера</DialogTitle>
             <DialogDescription>
-              Update the partner information.
+              Оновіть інформацію про партнера.
             </DialogDescription>
           </DialogHeader>
           <PartnerForm
@@ -95,9 +95,9 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
       <Dialog open={isViewOpen} onOpenChange={onCloseView}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Partner Details</DialogTitle>
+            <DialogTitle>Деталі партнера</DialogTitle>
             <DialogDescription>
-              View detailed information about the partner.
+              Перегляньте детальну інформацію про партнера.
             </DialogDescription>
           </DialogHeader>
           {selectedPartner && (
@@ -111,7 +111,7 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
                     onEdit(selectedPartner);
                   }}
                 >
-                  Edit Partner
+                  Редагувати партнера
                 </Button>
                 <Button
                   variant="destructive"
@@ -120,7 +120,7 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
                     onDelete(selectedPartner);
                   }}
                 >
-                  Delete Partner
+                  Видалити партнера
                 </Button>
               </div>
             </div>
@@ -134,11 +134,11 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2">
               <AlertTriangle className="h-5 w-5 text-red-500" />
-              <span>Delete Partner</span>
+              <span>Видалити партнера</span>
             </DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete this partner? This action cannot
-              be undone.
+              Ви впевнені, що хочете видалити цього партнера? Цю дію неможливо
+              скасувати.
             </DialogDescription>
           </DialogHeader>
 
@@ -148,7 +148,7 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
                 {selectedPartner.logo}
               </p>
               <p className="text-sm text-gray-600">
-                Language: {selectedPartner.language} | Link:{" "}
+                Мова: {selectedPartner.language} | Посилання:{" "}
                 {selectedPartner.link}
               </p>
             </div>
@@ -160,7 +160,7 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
               onClick={onCloseDelete}
               disabled={deletePartner.isPending}
             >
-              Cancel
+              Скасувати
             </Button>
             <Button
               variant="destructive"
@@ -170,10 +170,10 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
               {deletePartner.isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Deleting...
+                  Видалення...
                 </>
               ) : (
-                "Delete Partner"
+                "Видалити партнера"
               )}
             </Button>
           </div>
@@ -182,4 +182,3 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
     </>
   );
 };
-

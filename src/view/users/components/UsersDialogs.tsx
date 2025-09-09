@@ -197,7 +197,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2">
               <UserPlus className="h-5 w-5" />
-              <span>Create New User</span>
+              <span>Створити нового користувача</span>
             </DialogTitle>
           </DialogHeader>
 
@@ -208,13 +208,13 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <User className="h-4 w-4" />
-                <span>Name *</span>
+                <span>Ім&apos;я *</span>
               </Label>
               <Input
                 id="create-name"
                 value={formData.name}
                 onChange={e => handleInputChange("name", e.target.value)}
-                placeholder="Enter full name"
+                placeholder="Введіть ім'я"
                 disabled={isCreateLoading}
                 className={errors.name ? "border-red-500" : ""}
               />
@@ -229,14 +229,14 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <Mail className="h-4 w-4" />
-                <span>Email *</span>
+                <span>Е-пошта *</span>
               </Label>
               <Input
                 id="create-email"
                 type="email"
                 value={formData.email}
                 onChange={e => handleInputChange("email", e.target.value)}
-                placeholder="Enter email address"
+                placeholder="Введіть е-пошту"
                 disabled={isCreateLoading}
                 className={errors.email ? "border-red-500" : ""}
               />
@@ -251,14 +251,14 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <Lock className="h-4 w-4" />
-                <span>Password *</span>
+                <span>Пароль *</span>
               </Label>
               <Input
                 id="create-password"
                 type="password"
                 value={formData.password}
                 onChange={e => handleInputChange("password", e.target.value)}
-                placeholder="Enter password"
+                placeholder="Введіть пароль"
                 disabled={isCreateLoading}
                 className={errors.password ? "border-red-500" : ""}
               />
@@ -273,7 +273,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <Shield className="h-4 w-4" />
-                <span>Role *</span>
+                <span>Роль *</span>
               </Label>
               <Select
                 value={formData.role}
@@ -302,7 +302,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <X className="h-4 w-4" />
-                <span>Cancel</span>
+                <span>Скасувати</span>
               </Button>
               <Button
                 type="submit"
@@ -312,12 +312,12 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 {isCreateLoading ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    <span>Creating...</span>
+                    <span>Створення...</span>
                   </>
                 ) : (
                   <>
                     <Save className="h-4 w-4" />
-                    <span>Create User</span>
+                    <span>Створити користувача</span>
                   </>
                 )}
               </Button>
@@ -332,7 +332,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2">
               <User className="h-5 w-5" />
-              <span>Edit User</span>
+              <span>Редагувати користувача</span>
             </DialogTitle>
           </DialogHeader>
 
@@ -343,13 +343,13 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <User className="h-4 w-4" />
-                <span>Name *</span>
+                <span>Ім&apos;я *</span>
               </Label>
               <Input
                 id="edit-name"
                 value={formData.name}
                 onChange={e => handleInputChange("name", e.target.value)}
-                placeholder="Enter full name"
+                placeholder="Введіть ім'я"
                 disabled={isEditLoading}
                 className={errors.name ? "border-red-500" : ""}
               />
@@ -364,14 +364,14 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <Mail className="h-4 w-4" />
-                <span>Email *</span>
+                <span>Е-пошта *</span>
               </Label>
               <Input
                 id="edit-email"
                 type="email"
                 value={formData.email}
                 onChange={e => handleInputChange("email", e.target.value)}
-                placeholder="Enter email address"
+                placeholder="Введіть е-пошту"
                 disabled={isEditLoading}
                 className={errors.email ? "border-red-500" : ""}
               />
@@ -386,14 +386,14 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <Lock className="h-4 w-4" />
-                <span>Password (leave blank to keep current)</span>
+                <span>Пароль (залиште порожнім, щоб зберегти поточний)</span>
               </Label>
               <Input
                 id="edit-password"
                 type="password"
                 value={formData.password}
                 onChange={e => handleInputChange("password", e.target.value)}
-                placeholder="Enter new password"
+                placeholder="Введіть новий пароль"
                 disabled={isEditLoading}
                 className={errors.password ? "border-red-500" : ""}
               />
@@ -408,7 +408,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <Shield className="h-4 w-4" />
-                <span>Role *</span>
+                <span>Роль *</span>
               </Label>
               <Select
                 value={formData.role}
@@ -437,7 +437,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <X className="h-4 w-4" />
-                <span>Cancel</span>
+                <span>Скасувати</span>
               </Button>
               <Button
                 type="submit"
@@ -447,12 +447,12 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 {isEditLoading ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    <span>Updating...</span>
+                    <span>Оновлення...</span>
                   </>
                 ) : (
                   <>
                     <Save className="h-4 w-4" />
-                    <span>Update User</span>
+                    <span>Оновити користувача</span>
                   </>
                 )}
               </Button>
@@ -465,19 +465,19 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={onCloseDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete User</AlertDialogTitle>
+            <AlertDialogTitle>Видалити користувача</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete &quot;{selectedUser?.name}&quot;?
-              This action cannot be undone.
+              Ви впевнені, що хочете видалити &quot;{selectedUser?.name}&quot;?
+              Цю дію неможливо скасувати.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Скасувати</AlertDialogCancel>
             <AlertDialogAction
               onClick={onConfirmDelete}
               className="bg-red-600 hover:bg-red-700"
             >
-              Delete User
+              Видалити користувача
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

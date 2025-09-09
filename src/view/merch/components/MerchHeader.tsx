@@ -27,7 +27,7 @@ export const MerchHeader: React.FC<MerchHeaderProps> = ({
     <div className="flex items-center space-x-3">
       <Button onClick={handleEdit} className="flex items-center space-x-2">
         <Edit className="h-4 w-4" />
-        <span>Edit Merch Settings</span>
+        <span>Редагувати налаштування мерчу</span>
       </Button>
     </div>
   );

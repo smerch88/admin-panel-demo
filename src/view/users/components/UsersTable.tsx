@@ -49,7 +49,7 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Users</CardTitle>
+          <CardTitle>Користувачі</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -68,14 +68,14 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Users</CardTitle>
+          <CardTitle>Користувачі</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-red-500">Failed to load users</p>
+            <p className="text-red-500">Не вдалося завантажити користувачів</p>
             <p className="text-sm text-gray-500 mt-2">
-              Please try refreshing the page or contact support if the problem
-              persists.
+              Будь ласка, спробуйте оновити сторінку або зверніться до служби
+              підтримки, якщо проблема не зникне.
             </p>
           </div>
         </CardContent>
@@ -87,14 +87,15 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Users</CardTitle>
+          <CardTitle>Користувачі</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
             <User className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-500">No users found</p>
+            <p className="text-gray-500">Користувачів не знайдено</p>
             <p className="text-sm text-gray-400 mt-2">
-              Click &quot;Add User&quot; to create the first user
+              Натисніть &quot;Додати користувача&quot;, щоб створити першого
+              користувача.
             </p>
           </div>
         </CardContent>
@@ -105,17 +106,17 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Users ({users.length})</CardTitle>
+        <CardTitle>Користувачі ({users.length})</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="rounded-md border">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Email</TableHead>
-                <TableHead>Role</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead>Ім&apos;я</TableHead>
+                <TableHead>Е-пошта</TableHead>
+                <TableHead>Роль</TableHead>
+                <TableHead className="text-right">Дії</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -147,7 +148,7 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
                         className="flex items-center space-x-1"
                       >
                         <Edit className="h-3 w-3" />
-                        <span>Edit</span>
+                        <span>Редагувати</span>
                       </Button>
                       <Button
                         variant="outline"
@@ -156,7 +157,7 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
                         className="flex items-center space-x-1 text-red-600 hover:text-red-700 hover:bg-red-50"
                       >
                         <Trash2 className="h-3 w-3" />
-                        <span>Delete</span>
+                        <span>Видалити</span>
                       </Button>
                     </div>
                   </TableCell>

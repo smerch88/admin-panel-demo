@@ -51,7 +51,7 @@ export const ReportsTable: React.FC<ReportsTableProps> = ({
       <div className="bg-white rounded-lg shadow">
         <div className="p-6 text-center">
           <p className="text-gray-500">
-            No reports found for {locale.toUpperCase()} language.
+            Звіти для мови {locale.toUpperCase()} не знайдено.
           </p>
         </div>
       </div>
@@ -62,39 +62,39 @@ export const ReportsTable: React.FC<ReportsTableProps> = ({
     <div className="bg-white rounded-lg shadow">
       <div className="p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Reports ({reports.length})
+          Звіти ({reports.length})
         </h3>
 
         <div className="overflow-x-auto">
           <Table>
-             <TableHeader>
-               <TableRow>
-                 <TableHead>Year</TableHead>
-                 <TableHead>Month</TableHead>
-                 <TableHead>Language</TableHead>
-                 <TableHead>Type</TableHead>
-                 <TableHead>Status</TableHead>
-                 <TableHead>URL</TableHead>
-                 <TableHead>Actions</TableHead>
-               </TableRow>
-             </TableHeader>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Рік</TableHead>
+                <TableHead>Місяць</TableHead>
+                <TableHead>Мова</TableHead>
+                <TableHead>Тип</TableHead>
+                <TableHead>Статус</TableHead>
+                <TableHead>Посилання</TableHead>
+                <TableHead>Дії</TableHead>
+              </TableRow>
+            </TableHeader>
             <TableBody>
               {reports.map((report: Report) => (
-                 <TableRow key={report._id}>
-                   <TableCell className="font-medium">{report.year}</TableCell>
-                   <TableCell>
-                     <Badge variant="secondary">{report.month}</Badge>
-                   </TableCell>
-                   <TableCell>
-                     <Badge variant="outline">{report.language}</Badge>
-                   </TableCell>
-                   <TableCell>
-                     <Badge variant="secondary">{report.type}</Badge>
-                   </TableCell>
-                   <TableCell>
-                     <Badge variant="outline">{report.status}</Badge>
-                   </TableCell>
-                   <TableCell>
+                <TableRow key={report._id}>
+                  <TableCell className="font-medium">{report.year}</TableCell>
+                  <TableCell>
+                    <Badge variant="secondary">{report.month}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="outline">{report.language}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="secondary">{report.type}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="outline">{report.status}</Badge>
+                  </TableCell>
+                  <TableCell>
                     <div className="flex items-center space-x-2">
                       <span className="text-sm text-gray-600 truncate max-w-xs">
                         {report.url}

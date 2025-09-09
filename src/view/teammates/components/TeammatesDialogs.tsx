@@ -70,9 +70,10 @@ export const TeammatesDialogs: React.FC<TeammatesDialogsProps> = ({
       <Dialog open={isCreateOpen} onOpenChange={onCloseCreate}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Add New Teammate</DialogTitle>
+            <DialogTitle>Додати нового учасника</DialogTitle>
             <DialogDescription>
-              Create a new team member with their information and photo.
+              Створіть нового учасника команди, вказавши його інформацію та
+              фото.
             </DialogDescription>
           </DialogHeader>
           <TeammateForm
@@ -87,9 +88,9 @@ export const TeammatesDialogs: React.FC<TeammatesDialogsProps> = ({
       <Dialog open={isEditOpen} onOpenChange={onCloseEdit}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Edit Teammate</DialogTitle>
+            <DialogTitle>Редагувати учасника</DialogTitle>
             <DialogDescription>
-              Update the team member&apos;s information and photo.
+              Оновіть інформацію та фото учасника команди.
             </DialogDescription>
           </DialogHeader>
           <TeammateForm
@@ -105,9 +106,9 @@ export const TeammatesDialogs: React.FC<TeammatesDialogsProps> = ({
       <Dialog open={isViewOpen} onOpenChange={onCloseView}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Teammate Details</DialogTitle>
+            <DialogTitle>Деталі учасника</DialogTitle>
             <DialogDescription>
-              View detailed information about the team member.
+              Перегляньте детальну інформацію про учасника команди.
             </DialogDescription>
           </DialogHeader>
           {selectedTeammate && <TeammateDetails teammate={selectedTeammate} />}
@@ -118,20 +119,20 @@ export const TeammatesDialogs: React.FC<TeammatesDialogsProps> = ({
       <AlertDialog open={isDeleteOpen} onOpenChange={onCloseDelete}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogTitle>Ви впевнені?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the
-              teammate &quot;{selectedTeammate?.name}&quot; and remove their
-              data from our servers.
+              Цю дію неможливо скасувати. Це назавжди видалить учасника команди
+              &quot;{selectedTeammate?.name}&quot; та видалить їхні дані з наших
+              серверів.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Скасувати</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDeleteConfirm}
               className="bg-red-600 hover:bg-red-700"
             >
-              Delete
+              Видалити
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

@@ -48,8 +48,8 @@ export default function ReportsView() {
       <div className="p-6">
         <div className="max-w-7xl mx-auto space-y-6">
           <PageHeader
-            title="Reports Management"
-            description="Manage monthly reports and documentation"
+            title="Управління звітами"
+            description="Керуйте щомісячними звітами та документацією"
           />
 
           <div className="flex items-center justify-between">

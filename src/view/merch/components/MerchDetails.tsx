@@ -22,7 +22,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Merch Settings</CardTitle>
+          <CardTitle>Налаштування мерчу</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="animate-pulse space-y-4">
@@ -43,10 +43,12 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-red-500">Failed to load merch settings</p>
+            <p className="text-red-500">
+              Не вдалося завантажити налаштування мерчу
+            </p>
             <p className="text-sm text-gray-500 mt-2">
-              Please try refreshing the page or contact support if the problem
-              persists.
+              Будь ласка, спробуйте оновити сторінку або зверніться до служби
+              підтримки, якщо проблема не зникне.
             </p>
           </div>
         </CardContent>
@@ -58,16 +60,17 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Merch Settings</CardTitle>
+          <CardTitle>Налаштування мерчу</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
             <ShoppingBag className="h-12 w-12 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-500">
-              No merch settings found for {locale.toUpperCase()}
+              Налаштувань мерчу для {locale.toUpperCase()} не знайдено
             </p>
             <p className="text-sm text-gray-400 mt-2">
-              Click &quot;Edit Merch Settings&quot; to create new settings
+              Натисніть &quot;Редагувати налаштування мерчу&quot;, щоб створити
+              нові налаштування
             </p>
           </div>
         </CardContent>
@@ -79,7 +82,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
     <Card>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle>Merch Settings</CardTitle>
+          <CardTitle>Налаштування мерчу</CardTitle>
           <Button
             variant="outline"
             size="sm"
@@ -87,7 +90,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
             className="flex items-center space-x-2"
           >
             <Edit className="h-4 w-4" />
-            <span>Edit</span>
+            <span>Редагувати</span>
           </Button>
         </div>
       </CardHeader>
@@ -97,7 +100,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
             <div className="flex items-center space-x-2">
               <Globe className="h-5 w-5 text-gray-400" />
               <div>
-                <p className="text-sm font-medium text-gray-500">Language</p>
+                <p className="text-sm font-medium text-gray-500">Мова</p>
                 <Badge variant="outline" className="text-sm">
                   {merch.locale.toUpperCase()}
                 </Badge>
@@ -107,7 +110,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
             <div className="flex items-center space-x-2">
               <ShoppingBag className="h-5 w-5 text-gray-400" />
               <div>
-                <p className="text-sm font-medium text-gray-500">Status</p>
+                <p className="text-sm font-medium text-gray-500">Статус</p>
                 <Badge
                   variant={merch.status === "on" ? "default" : "secondary"}
                   className="text-sm"
@@ -121,7 +124,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
           <div className="space-y-4">
             <div>
               <p className="text-sm font-medium text-gray-500 mb-2">
-                Button Content
+                Вміст кнопки
               </p>
               <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded border">
                 {merch.content || "No content set"}
@@ -130,7 +133,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
 
             <div>
               <p className="text-sm font-medium text-gray-500 mb-2">
-                Merch Link
+                Посилання на мерч
               </p>
               <div className="flex items-center space-x-2">
                 <p className="text-sm text-gray-700 break-all flex-1">
@@ -157,13 +160,13 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
               <div className="flex items-center space-x-2">
                 <div className="h-2 w-2 bg-green-500 rounded-full"></div>
                 <p className="text-sm font-medium text-green-800">
-                  Merch button is currently active
+                  Кнопка мерчу наразі активна
                 </p>
               </div>
               <p className="text-sm text-green-600 mt-1">
-                Users will see the merch button with the content &quot;
+                Користувачі побачать кнопку мерчу з вказаним вмістом &quot;
                 {merch.content}&quot;
-                {merch.link && " linking to " + merch.link}
+                {merch.link && " посилання на " + merch.link}
               </p>
             </div>
           </div>

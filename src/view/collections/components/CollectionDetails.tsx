@@ -44,33 +44,33 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
       {/* Basic Information */}
       <Card>
         <CardHeader>
-          <CardTitle>Basic Information</CardTitle>
+          <CardTitle>Основна інформація</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-sm font-medium text-gray-500">Title</label>
+              <label className="text-sm font-medium text-gray-500">
+                Заголовок
+              </label>
               <p className="text-lg font-semibold">{collection.title}</p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-500">
-                Description
-              </label>
+              <label className="text-sm font-medium text-gray-500">Опис</label>
               <p className="text-gray-700">{collection.desc}</p>
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">
-                Alt Text
+                Альтернативний текст
               </label>
               <p className="text-gray-700">{collection.alt || "N/A"}</p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-500">Type</label>
+              <label className="text-sm font-medium text-gray-500">Тип</label>
               <p className="text-gray-700">{collection.type}</p>
             </div>
             <div className="col-span-2">
               <label className="text-sm font-medium text-gray-500">
-                Images
+                Зображення
               </label>
               <div className="flex flex-wrap gap-2 mt-2">
                 {collection.image && collection.image.length > 0 ? (
@@ -94,7 +94,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
                     })
                     .filter(Boolean)
                 ) : (
-                  <p className="text-gray-500">No images</p>
+                  <p className="text-gray-500">Немає зображень</p>
                 )}
               </div>
             </div>
@@ -105,7 +105,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
       {/* Financial Information */}
       <Card>
         <CardHeader>
-          <CardTitle>Financial Information</CardTitle>
+          <CardTitle>Фінансова інформація</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -116,20 +116,18 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
               <p className="text-2xl font-bold text-green-600">
                 {formatCurrency(collection.collected)}
               </p>
-              <p className="text-sm text-gray-500">Collected</p>
+              <p className="text-sm text-gray-500">Зібрано</p>
             </div>
             <div className="text-center">
-              <label className="text-sm font-medium text-gray-500">
-                Target
-              </label>
+              <label className="text-sm font-medium text-gray-500">Ціль</label>
               <p className="text-2xl font-bold text-blue-600">
                 {formatCurrency(collection.target)}
               </p>
-              <p className="text-sm text-gray-500">Target</p>
+              <p className="text-sm text-gray-500">Ціль</p>
             </div>
             <div className="text-center">
               <label className="text-sm font-medium text-gray-500">
-                Progress
+                Прогрес
               </label>
               <p className="text-2xl font-bold text-purple-600">
                 {Math.round((collection.collected / collection.target) * 100)}%
@@ -145,7 +143,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
             </div>
             <div className="text-center">
               <label className="text-sm font-medium text-gray-500">
-                People Donated
+                Кількість донорів
               </label>
               <p className="text-2xl font-bold text-orange-600">
                 {collection.peopleDonate}
@@ -161,13 +159,13 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
       {/* Campaign Settings */}
       <Card>
         <CardHeader>
-          <CardTitle>Campaign Settings</CardTitle>
+          <CardTitle>Налаштування кампанії</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label className="text-sm font-medium text-gray-500">
-                Status
+                Статус
               </label>
               <Badge className={`mt-1 ${getStatusColor(collection.status)}`}>
                 {collection.status}
@@ -175,7 +173,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">
-                Importance
+                Важливість
               </label>
               <Badge
                 className={`mt-1 ${getImportanceColor(collection.importance)}`}
@@ -185,7 +183,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">
-                Duration
+                Тривалість
               </label>
               <p className="text-gray-700">
                 {collection.days
@@ -195,7 +193,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">
-                Quantity
+                Кількість
               </label>
               <p className="text-gray-700">{collection.quantity || "N/A"}</p>
             </div>
@@ -207,13 +205,13 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
       {collection.long_desc && (
         <Card>
           <CardHeader>
-            <CardTitle>Detailed Description</CardTitle>
+            <CardTitle>Детальний опис</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               {collection.long_desc.section1 && (
                 <div className="border-l-4 border-indigo-500 pl-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Section 1</h4>
+                  <h4 className="font-medium text-gray-900 mb-2">Розділ 1</h4>
                   <p className="text-gray-700">
                     {collection.long_desc.section1}
                   </p>
@@ -221,7 +219,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
               )}
               {collection.long_desc.section2 && (
                 <div className="border-l-4 border-indigo-500 pl-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Section 2</h4>
+                  <h4 className="font-medium text-gray-900 mb-2">Розділ 2</h4>
                   <p className="text-gray-700">
                     {collection.long_desc.section2}
                   </p>
@@ -229,7 +227,7 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
               )}
               {collection.long_desc.section3 && (
                 <div className="border-l-4 border-indigo-500 pl-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Section 3</h4>
+                  <h4 className="font-medium text-gray-900 mb-2">Розділ 3</h4>
                   <p className="text-gray-700">
                     {collection.long_desc.section3}
                   </p>
@@ -243,31 +241,31 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
       {/* Metadata */}
       <Card>
         <CardHeader>
-          <CardTitle>Metadata</CardTitle>
+          <CardTitle>Метадані</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="text-sm font-medium text-gray-500">
-                Created
+                Створено
               </label>
               <p className="text-gray-700">
                 {new Date(collection.createdAt).toLocaleDateString()}
               </p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-500">
-                Language
-              </label>
+              <label className="text-sm font-medium text-gray-500">Мова</label>
               <p className="text-gray-700">{collection.language}</p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-500">Value</label>
+              <label className="text-sm font-medium text-gray-500">
+                Значення
+              </label>
               <p className="text-gray-700">{collection.value || "N/A"}</p>
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">
-                Closed At
+                Закрито
               </label>
               <p className="text-gray-700">
                 {collection.closedAt

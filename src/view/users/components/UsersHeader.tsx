@@ -13,10 +13,9 @@ export const UsersHeader: React.FC<UsersHeaderProps> = ({ onCreate }) => {
       <div className="flex items-center space-x-3">
         <Button onClick={onCreate} className="flex items-center space-x-2">
           <Plus className="h-4 w-4" />
-          <span>Add User</span>
+          <span>Додати користувача</span>
         </Button>
       </div>
     </div>
   );
 };
-

@@ -72,7 +72,7 @@ export const CollectionsDialogs: React.FC<CollectionsDialogsProps> = ({
       <Dialog open={isCreateOpen} onOpenChange={onCreateClose}>
         <DialogContent className="max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Create New Collection</DialogTitle>
+            <DialogTitle>Створити новий збір</DialogTitle>
           </DialogHeader>
           <CollectionForm
             onSubmit={(
@@ -89,7 +89,7 @@ export const CollectionsDialogs: React.FC<CollectionsDialogsProps> = ({
       <Dialog open={isEditOpen} onOpenChange={onEditClose}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Edit Collection</DialogTitle>
+            <DialogTitle>Редагувати збір</DialogTitle>
           </DialogHeader>
           {selectedCollection && (
             <CollectionForm
@@ -109,7 +109,7 @@ export const CollectionsDialogs: React.FC<CollectionsDialogsProps> = ({
       <Dialog open={isViewOpen} onOpenChange={onViewClose}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Collection Details</DialogTitle>
+            <DialogTitle>Деталі збору</DialogTitle>
           </DialogHeader>
           {selectedCollection && (
             <CollectionDetails collection={selectedCollection} />
@@ -121,19 +121,19 @@ export const CollectionsDialogs: React.FC<CollectionsDialogsProps> = ({
       <AlertDialog open={isDeleteOpen} onOpenChange={onDeleteClose}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogTitle>Ви впевнені?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the
-              collection &quot;{selectedCollection?.title}&quot;.
+              Цю дію неможливо скасувати. Це назавжди видалить збір &quot;
+              {selectedCollection?.title}&quot;.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Скасувати</AlertDialogCancel>
             <AlertDialogAction
               onClick={onDeleteConfirm}
               className="bg-red-600 hover:bg-red-700"
             >
-              Delete
+              Видалити
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
