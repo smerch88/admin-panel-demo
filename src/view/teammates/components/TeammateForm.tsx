@@ -157,8 +157,7 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="image">
-            Profile Photo{" "}
-            {!isEditing && <span className="text-red-500">*</span>}
+            Фото профілю {!isEditing && <span className="text-red-500">*</span>}
           </Label>
           <div className="flex items-center space-x-4">
             <div className="flex-1">
@@ -181,7 +180,7 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
                 className="flex items-center space-x-1"
               >
                 <X className="h-4 w-4" />
-                <span>Remove</span>
+                <span>Видалити</span>
               </Button>
             )}
           </div>
@@ -204,7 +203,7 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="name">Name *</Label>
+          <Label htmlFor="name">Ім&apos;я *</Label>
           <Input
             id="name"
             type="text"
@@ -218,12 +217,12 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
           />
           <div className="flex justify-between text-xs text-gray-500">
             <span>{errors.name || ""}</span>
-            <span>{formData.name.length}/24 characters</span>
+            <span>{formData.name.length}/24 символи</span>
           </div>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="role">Role *</Label>
+          <Label htmlFor="role">Роль *</Label>
           <Input
             id="role"
             type="text"
@@ -237,12 +236,12 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
           />
           <div className="flex justify-between text-xs text-gray-500">
             <span>{errors.role || ""}</span>
-            <span>{formData.role.length}/48 characters</span>
+            <span>{formData.role.length}/48 символи</span>
           </div>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="description">Description *</Label>
+          <Label htmlFor="description">Опис *</Label>
           <Textarea
             id="description"
             value={formData.description}
@@ -258,13 +257,13 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
           />
           <div className="flex justify-between text-xs text-gray-500">
             <span>{errors.description || ""}</span>
-            <span>{formData.description.length}/320 characters</span>
+            <span>{formData.description.length}/320 символи</span>
           </div>
         </div>
 
         {!isEditing && (
           <div className="space-y-2">
-            <Label htmlFor="locale">Language *</Label>
+            <Label htmlFor="locale">Мова *</Label>
             <Select
               value={formData.locale}
               onValueChange={(value: "ua" | "en") =>
@@ -294,18 +293,18 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
           onClick={onCancel}
           disabled={isLoading}
         >
-          Cancel
+          Скасувати
         </Button>
         <Button type="submit" disabled={isLoading}>
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {isEditing ? "Updating..." : "Creating..."}
+              {isEditing ? "Оновлення..." : "Створення..."}
             </>
           ) : isEditing ? (
-            "Update Teammate"
+            "Оновити учасника"
           ) : (
-            "Create Teammate"
+            "Створити учасника"
           )}
         </Button>
       </div>

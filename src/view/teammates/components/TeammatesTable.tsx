@@ -53,7 +53,7 @@ export const TeammatesTable: React.FC<TeammatesTableProps> = ({
       <div className="bg-white rounded-lg shadow">
         <div className="p-6 text-center">
           <p className="text-gray-500">
-            No teammates found for {locale.toUpperCase()} language.
+            Учасників команди для мови {locale.toUpperCase()} не знайдено.
           </p>
         </div>
       </div>
@@ -64,19 +64,19 @@ export const TeammatesTable: React.FC<TeammatesTableProps> = ({
     <div className="bg-white rounded-lg shadow">
       <div className="p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Teammates ({teammates.length})
+          Учасники команди ({teammates.length})
         </h3>
 
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Photo</TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Role</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Language</TableHead>
-                <TableHead>Actions</TableHead>
+                <TableHead>Фото</TableHead>
+                <TableHead>Ім&apos;я</TableHead>
+                <TableHead>Роль</TableHead>
+                <TableHead>Опис</TableHead>
+                <TableHead>Мова</TableHead>
+                <TableHead>Дії</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

@@ -68,8 +68,8 @@ export default function TeammatesView() {
       <div className="p-6">
         <div className="max-w-7xl mx-auto space-y-6">
           <PageHeader
-            title="Teammates Management"
-            description="Manage team members and their information"
+            title="Управління командою"
+            description="Керуйте учасниками команди та їхньою інформацією"
           />
 
           <div className="flex items-center justify-between">

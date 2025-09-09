@@ -22,7 +22,7 @@ export const TeammateDetails: React.FC<TeammateDetailsProps> = ({
           <div className="flex items-center space-x-2">
             <User className="h-5 w-5 text-gray-400" />
             <div>
-              <p className="text-sm font-medium text-gray-500">Name</p>
+              <p className="text-sm font-medium text-gray-500">Ім&apos;я</p>
               <p className="text-lg font-semibold">{teammate.name}</p>
             </div>
           </div>
@@ -30,7 +30,7 @@ export const TeammateDetails: React.FC<TeammateDetailsProps> = ({
           <div className="flex items-center space-x-2">
             <Briefcase className="h-5 w-5 text-gray-400" />
             <div>
-              <p className="text-sm font-medium text-gray-500">Role</p>
+              <p className="text-sm font-medium text-gray-500">Роль</p>
               <Badge variant="outline" className="text-sm">
                 {teammate.role}
               </Badge>
@@ -40,7 +40,7 @@ export const TeammateDetails: React.FC<TeammateDetailsProps> = ({
           <div className="flex items-center space-x-2">
             <Globe className="h-5 w-5 text-gray-400" />
             <div>
-              <p className="text-sm font-medium text-gray-500">Language</p>
+              <p className="text-sm font-medium text-gray-500">Мова</p>
               <Badge variant="secondary" className="text-sm">
                 {teammate.locale?.toUpperCase() || "N/A"}
               </Badge>
@@ -53,7 +53,7 @@ export const TeammateDetails: React.FC<TeammateDetailsProps> = ({
             <User className="h-5 w-5 text-gray-400 mt-1" />
             <div className="flex-1">
               <p className="text-sm font-medium text-gray-500 mb-2">
-                Profile Photo
+                Фото профілю
               </p>
               {(() => {
                 const imageUrl = getImageUrl(teammate.image);
@@ -86,7 +86,7 @@ export const TeammateDetails: React.FC<TeammateDetailsProps> = ({
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <FileText className="h-5 w-5" />
-            <span>Description</span>
+            <span>Опис</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -99,11 +99,11 @@ export const TeammateDetails: React.FC<TeammateDetailsProps> = ({
       <div className="pt-4 border-t">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">Teammate ID</p>
+            <p className="text-sm text-gray-500">Учасник команди ID</p>
             <p className="text-sm font-mono text-gray-700">{teammate._id}</p>
           </div>
           <div className="text-right">
-            <p className="text-sm text-gray-500">Created</p>
+            <p className="text-sm text-gray-500">Створено</p>
             <p className="text-sm text-gray-700">
               {teammate.createdAt
                 ? new Date(teammate.createdAt).toLocaleDateString()
