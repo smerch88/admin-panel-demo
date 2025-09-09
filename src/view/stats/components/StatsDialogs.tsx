@@ -42,21 +42,21 @@ const statIcons = {
 };
 
 const statLabels = {
-  fedPeople: "People Fed",
-  providedWithClothing: "Provided with Clothing",
-  providedWithWater: "Supplied with Water",
-  receivedMedications: "Received Medicines",
-  fedAnimals: "Animals Fed",
-  providedWithElectricity: "Provided with Electricity",
+  fedPeople: "Годування людей",
+  providedWithClothing: "Надано одяг",
+  providedWithWater: "Забезпечено водою",
+  receivedMedications: "Отримано ліки",
+  fedAnimals: "Годування тварин",
+  providedWithElectricity: "Надано електрику",
 };
 
 const statDescriptions = {
-  fedPeople: "Number of people who received food assistance",
-  providedWithClothing: "Number of people provided with clothing",
-  providedWithWater: "Number of people supplied with water",
-  receivedMedications: "Number of people who received medical supplies",
-  fedAnimals: "Number of animals that received food",
-  providedWithElectricity: "Number of people provided with electricity",
+  fedPeople: "Кількість людей, які отримали продовольчу допомогу",
+  providedWithClothing: "Кількість людей, яким надали одяг",
+  providedWithWater: "Кількість людей, забезпечених водою",
+  receivedMedications: "Кількість людей, які отримали медичні засоби",
+  fedAnimals: "Кількість тварин, які отримали їжу",
+  providedWithElectricity: "Кількість людей, яким надали електрику",
 };
 
 export const StatsDialogs: React.FC<StatsDialogsProps> = ({
@@ -140,7 +140,7 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
     >
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Edit Statistics</DialogTitle>
+          <DialogTitle>Редагувати статистику</DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -190,7 +190,7 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
               className="flex items-center space-x-2"
             >
               <X className="h-4 w-4" />
-              <span>Cancel</span>
+              <span>Скасувати</span>
             </Button>
             <Button
               type="submit"
@@ -200,12 +200,12 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
               {isLoading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>Saving...</span>
+                  <span>Збереження...</span>
                 </>
               ) : (
                 <>
                   <Save className="h-4 w-4" />
-                  <span>Save Changes</span>
+                  <span>Зберегти зміни</span>
                 </>
               )}
             </Button>

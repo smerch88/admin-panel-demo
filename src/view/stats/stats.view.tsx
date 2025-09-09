@@ -30,8 +30,8 @@ export default function StatsView() {
       <div className="p-6">
         <div className="max-w-6xl mx-auto space-y-6">
           <PageHeader
-            title="Statistics Management"
-            description="Manage statistics data for the About Us page"
+            title="Управління статистикою"
+            description="Керуйте даними статистики для сторінки «Про нас»"
           />
 
           <StatsHeader onEdit={handleEdit} />

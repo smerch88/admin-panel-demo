@@ -20,12 +20,12 @@ const statIcons = {
 };
 
 const statLabels = {
-  fedPeople: "People Fed",
-  providedWithClothing: "Provided with Clothing",
-  providedWithWater: "Supplied with Water",
-  receivedMedications: "Received Medicines",
-  fedAnimals: "Animals Fed",
-  providedWithElectricity: "Provided with Electricity",
+  fedPeople: "Годування людей",
+  providedWithClothing: "Надано одяг",
+  providedWithWater: "Забезпечено водою",
+  receivedMedications: "Отримано ліки",
+  fedAnimals: "Годування тварин",
+  providedWithElectricity: "Надано електрику",
 };
 
 export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
@@ -59,10 +59,10 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-red-500">Failed to load statistics</p>
+            <p className="text-red-500">Не вдалося завантажити статистику</p>
             <p className="text-sm text-gray-500 mt-2">
-              Please try refreshing the page or contact support if the problem
-              persists.
+              Будь ласка, спробуйте оновити сторінку або зверніться до служби
+              підтримки, якщо проблема не зникне.
             </p>
           </div>
         </CardContent>
@@ -78,9 +78,10 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-gray-500">No statistics found</p>
+            <p className="text-gray-500">Статистику не знайдено</p>
             <p className="text-sm text-gray-400 mt-2">
-              Click &quot;Edit Statistics&quot; to add statistics data
+              Натисніть &quot;Редагувати статистику&quot;, щоб додати дані
+              статистики.
             </p>
           </div>
         </CardContent>
@@ -92,7 +93,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold text-gray-900">
-          Current Statistics
+          Поточна статистика
         </h3>
         <Button
           variant="outline"
@@ -101,7 +102,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
           className="flex items-center space-x-2"
         >
           <Edit className="h-4 w-4" />
-          <span>Edit</span>
+          <span>Редагувати</span>
         </Button>
       </div>
 
@@ -133,15 +134,14 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
         <div className="flex items-center space-x-2">
           <div className="h-2 w-2 bg-blue-500 rounded-full"></div>
           <p className="text-sm font-medium text-blue-800">
-            Statistics are displayed on the About Us page
+            Статистика відображається на сторінці «Про нас»
           </p>
         </div>
         <p className="text-sm text-blue-600 mt-1">
-          These numbers represent the total impact of your organization&apos;s
-          humanitarian efforts.
+          Ці цифри показують загальний вплив гуманітарної діяльності вашої
+          організації.
         </p>
       </div>
     </div>
   );
 };
-
