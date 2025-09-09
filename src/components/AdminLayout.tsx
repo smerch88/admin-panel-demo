@@ -1,6 +1,7 @@
 "use client";
 
 import { Sidebar } from "./Sidebar";
+import { Toaster } from "sonner";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     <div className="flex h-screen bg-gray-50">
       <Sidebar />
       <main className="flex-1 overflow-auto">{children}</main>
+      <Toaster richColors position="top-center" expand />
     </div>
   );
 }

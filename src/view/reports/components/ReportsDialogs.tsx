@@ -13,6 +13,7 @@ import { ReportDetails } from "./ReportDetails";
 import { useDeleteReport } from "@/hooks/reports";
 import { Loader2, AlertTriangle } from "lucide-react";
 import { Report } from "@/lib/types";
+import { toast } from "sonner";
 
 interface ReportsDialogsProps {
   isCreateOpen: boolean;
@@ -47,8 +48,10 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
     if (selectedReport) {
       try {
         await deleteReport.mutateAsync(selectedReport._id);
+        toast.success("Report deleted successfully!");
         onCloseDelete();
       } catch (error) {
+        toast.error("Failed to delete report");
         console.error("Error deleting report:", error);
       }
     }
@@ -57,6 +60,7 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
   const handleFormSuccess = () => {
     onCloseCreate();
     onCloseEdit();
+    toast.success("Report saved successfully!");
   };
 
   return (

@@ -24,6 +24,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Stats, UpdateStatsRequest } from "@/lib/types";
+import { toast } from "sonner";
 
 interface StatsDialogsProps {
   isEditDialogOpen: boolean;
@@ -108,13 +109,16 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
     e.preventDefault();
 
     if (!validateForm()) {
+      toast.error("Please fix invalid values");
       return;
     }
 
     try {
       await updateStats.mutateAsync(formData);
+      toast.success("Stats updated successfully!");
       onEditSuccess();
     } catch (error) {
+      toast.error("Failed to update stats");
       console.error("Error updating stats:", error);
     }
   };

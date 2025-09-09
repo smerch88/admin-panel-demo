@@ -44,6 +44,7 @@ import {
   RegisterRequest,
   UpdateUserRequest,
 } from "@/lib/types";
+import { toast } from "sonner";
 
 interface UsersDialogsProps {
   isCreateDialogOpen: boolean;
@@ -127,6 +128,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
     e.preventDefault();
 
     if (!validateForm()) {
+      toast.error("Please fix the highlighted errors");
       return;
     }
 
@@ -138,8 +140,10 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
         role: formData.role,
       };
       await register.mutateAsync(userData);
+      toast.success("User created successfully!");
       onCreateSuccess();
     } catch (error) {
+      toast.error("Failed to create user");
       console.error("Error creating user:", error);
     }
   };
@@ -148,6 +152,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
     e.preventDefault();
 
     if (!validateForm() || !selectedUser) {
+      if (!validateForm()) toast.error("Please fix the highlighted errors");
       return;
     }
 
@@ -162,8 +167,10 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
         userId: selectedUser._id,
         userData,
       });
+      toast.success("User updated successfully!");
       onEditSuccess();
     } catch (error) {
+      toast.error("Failed to update user");
       console.error("Error updating user:", error);
     }
   };

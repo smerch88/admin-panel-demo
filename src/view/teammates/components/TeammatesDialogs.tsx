@@ -20,6 +20,7 @@ import {
 import { Teammate } from "@/lib/types";
 import { TeammateDetails } from "./TeammateDetails";
 import { TeammateForm } from "./TeammateForm";
+import { toast } from "sonner";
 
 interface TeammatesDialogsProps {
   isCreateOpen: boolean;
@@ -48,20 +49,21 @@ export const TeammatesDialogs: React.FC<TeammatesDialogsProps> = ({
   onCloseEdit,
   onCloseView,
   onCloseDelete,
-  onEdit,
-  onDelete,
   onConfirmDelete,
 }) => {
   const handleCreateSuccess = () => {
     onCloseCreate();
+    toast.success("Teammate saved successfully!");
   };
 
   const handleEditSuccess = () => {
+    toast.success("Teammate saved successfully!");
     onCloseEdit();
   };
 
   const handleDeleteConfirm = () => {
     onConfirmDelete();
+    toast.success("Teammate deleted successfully!");
   };
 
   return (

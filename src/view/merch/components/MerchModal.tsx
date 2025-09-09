@@ -5,6 +5,7 @@ import { useUpdateMerch } from "@/hooks/merch";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 import {
   Select,
   SelectContent,
@@ -69,9 +70,11 @@ export const MerchModal: React.FC<MerchModalProps> = ({
         locale,
         merchData: formData,
       });
+      toast.success("Merch updated successfully!");
       onSuccess();
       onClose();
     } catch (error) {
+      toast.error("Failed to update merch");
       console.error("Error updating merch:", error);
     }
   };

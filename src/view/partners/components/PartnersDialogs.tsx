@@ -13,6 +13,7 @@ import { PartnerDetails } from "./PartnerDetails";
 import { useDeletePartner } from "@/hooks/partners";
 import { Loader2, AlertTriangle } from "lucide-react";
 import { Partner } from "@/lib/types";
+import { toast } from "sonner";
 
 interface PartnersDialogsProps {
   isCreateOpen: boolean;
@@ -47,8 +48,10 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
     if (selectedPartner) {
       try {
         await deletePartner.mutateAsync(selectedPartner._id);
+        toast.success("Partner deleted successfully!");
         onCloseDelete();
       } catch (error) {
+        toast.error("Failed to delete partner");
         console.error("Error deleting partner:", error);
       }
     }
@@ -57,6 +60,7 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
   const handleFormSuccess = () => {
     onCloseCreate();
     onCloseEdit();
+    toast.success("Partner saved successfully!");
   };
 
   return (
