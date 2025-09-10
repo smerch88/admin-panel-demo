@@ -23,21 +23,22 @@ export const CollectionsStats: React.FC<CollectionsStatsProps> = ({
     {
       title: "Всього зборів",
       value: totalCollections,
+      color: "purple" as const,
     },
     {
       title: "Активні збори",
       value: activeCollections,
-      color: "green" as const,
+      color: "purple" as const,
     },
     {
       title: "Закриті збори",
       value: closedCollections,
-      color: "red" as const,
+      color: "purple" as const,
     },
     {
       title: "Загальна сума зібраного",
-      value: `$${totalRaised.toLocaleString()}`,
-      color: "blue" as const,
+      value: `₴${totalRaised.toLocaleString()}`,
+      color: "green" as const,
     },
   ];
 

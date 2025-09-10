@@ -15,7 +15,7 @@ export const ReportsStats: React.FC<ReportsStatsProps> = ({ locale }) => {
     {
       title: "Усього звітів",
       value: reports?.length || 0,
-      color: "blue" as const,
+      color: "purple" as const,
     },
     {
       title: "Поточний рік",
@@ -24,7 +24,7 @@ export const ReportsStats: React.FC<ReportsStatsProps> = ({ locale }) => {
           (report: Report) =>
             report.year === new Date().getFullYear().toString()
         ).length || 0,
-      color: "green" as const,
+      color: "purple" as const,
     },
     {
       title: "Цього місяця",
@@ -38,7 +38,7 @@ export const ReportsStats: React.FC<ReportsStatsProps> = ({ locale }) => {
             report.year === new Date().getFullYear().toString()
           );
         }).length || 0,
-      color: "red" as const,
+      color: "purple" as const,
     },
     {
       title: "Мова",

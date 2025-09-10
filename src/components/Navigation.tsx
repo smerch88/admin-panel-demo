@@ -25,23 +25,23 @@ export function Navigation() {
         <div className="flex justify-between h-16">
           <div className="flex items-center space-x-8">
             <Link
-              href="/dashboard"
+              href="/collections"
               className="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors"
             >
-              Admin Panel
+              Адміністративна панель
             </Link>
             <div className="hidden md:flex space-x-6">
               <Link
-                href="/dashboard"
+                href="/collections"
                 className="text-gray-600 hover:text-indigo-600 transition-colors"
               >
-                Dashboard
+                Збори
               </Link>
               <Link
                 href="/"
                 className="text-gray-600 hover:text-indigo-600 transition-colors"
               >
-                Home
+                Головна
               </Link>
             </div>
           </div>

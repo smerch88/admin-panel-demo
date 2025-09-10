@@ -5,7 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface StatCard {
   title: string;
   value: string | number;
-  color?: "default" | "green" | "red" | "blue";
+  // description?: string;
+  color?: "default" | "purple" | "green";
+  // color?: "default" | "green" | "red" | "blue";
 }
 
 interface StatsCardsProps {
@@ -21,13 +23,21 @@ export const StatsCards: React.FC<StatsCardsProps> = ({
     switch (color) {
       case "green":
         return "text-green-600";
-      case "red":
-        return "text-red-600";
-      case "blue":
-        return "text-blue-600";
+      case "purple":
+        return "text-purple-600";
       default:
         return "";
     }
+    // switch (color) {
+    //   case "green":
+    //     return "text-green-600";
+    //   case "red":
+    //     return "text-red-600";
+    //   case "blue":
+    //     return "text-blue-600";
+    //   default:
+    //     return "";
+    // }
   };
 
   return (

@@ -39,7 +39,7 @@ export const CollectionsTable: React.FC<CollectionsTableProps> = ({
         <CardContent>
           <div className="text-center py-8">
             <p className="text-gray-500">
-              No collections found for this locale.
+              Не знайдено жодної колекції для цієї локалі.
             </p>
           </div>
         </CardContent>
@@ -100,15 +100,15 @@ export const CollectionsTable: React.FC<CollectionsTableProps> = ({
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       collection.status === "active"
                         ? "bg-green-100 text-green-800"
-                        : "bg-red-100 text-red-800"
+                        : "bg-[#E4E4E7]"
                     }`}
                   >
                     {collection.status}
                   </span>
                 </TableCell>
                 <TableCell>{collection.type}</TableCell>
-                <TableCell>${collection.collected.toLocaleString()}</TableCell>
-                <TableCell>${collection.target.toLocaleString()}</TableCell>
+                <TableCell>₴{collection.collected.toLocaleString()}</TableCell>
+                <TableCell>₴{collection.target.toLocaleString()}</TableCell>
                 <TableCell>
                   {collection.days ? `${collection.days} days` : "N/A"}
                 </TableCell>

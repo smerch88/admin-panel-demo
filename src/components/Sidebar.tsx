@@ -43,7 +43,7 @@ export function Sidebar() {
   // Filter navigation based on user role
   const filteredNavigation = navigation.filter(item => {
     // Only admins can see the Users page
-    if (item.name === "Users") {
+    if (item.name === "Користувачі") {
       return currentUser?.role === "admin";
     }
     return true;
@@ -76,8 +76,8 @@ export function Sidebar() {
                 <span
                   className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
                     currentUser.role === "admin"
-                      ? "bg-red-100 text-red-800"
-                      : "bg-blue-100 text-blue-800"
+                      ? "bg-[#5D00A3] text-[#EDDCFF]"
+                      : "bg-[#EDDCFF] text-[#5D00A3]"
                   }`}
                 >
                   {currentUser.role === "admin" ? "Admin" : "Editor"}

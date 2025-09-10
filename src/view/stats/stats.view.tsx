@@ -34,7 +34,7 @@ export default function StatsView() {
             description="Керуйте даними статистики для сторінки «Про нас»"
           />
 
-          <StatsHeader onEdit={handleEdit} />
+          {/* <StatsHeader onEdit={handleEdit} /> */}
           <StatsDisplay onEdit={handleEdit} />
 
           <StatsDialogs
