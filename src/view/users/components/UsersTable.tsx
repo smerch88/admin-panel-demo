@@ -148,7 +148,6 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
                         className="flex items-center space-x-1"
                       >
                         <Edit className="h-3 w-3" />
-                        <span>Редагувати</span>
                       </Button>
                       <Button
                         variant="outline"
@@ -157,7 +156,6 @@ export const UsersTable: React.FC<UsersTableProps> = ({ onEdit, onDelete }) => {
                         className="flex items-center space-x-1 text-red-600 hover:text-red-700 hover:bg-red-50"
                       >
                         <Trash2 className="h-3 w-3" />
-                        <span>Видалити</span>
                       </Button>
                     </div>
                   </TableCell>

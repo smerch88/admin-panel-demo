@@ -51,10 +51,10 @@ export default function MerchView() {
               selectedLocale={selectedLocale}
               onLocaleChange={handleLocaleChange}
             />
-            <MerchHeader
+            {/* <MerchHeader
               onEdit={handleCreate}
               selectedLocale={selectedLocale}
-            />
+            /> */}
           </div>
 
           <MerchDetails locale={selectedLocale} onEdit={handleEdit} />

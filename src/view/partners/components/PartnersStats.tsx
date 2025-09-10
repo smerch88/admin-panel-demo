@@ -15,14 +15,14 @@ export const PartnersStats: React.FC<PartnersStatsProps> = ({ locale }) => {
     {
       title: "Усього партнерів",
       value: partners?.length || 0,
-      color: "blue" as const,
+      color: "purple" as const,
     },
     {
       title: "Поточна мова",
       value:
         partners?.filter((partner: Partner) => partner.language === locale)
           .length || 0,
-      color: "green" as const,
+      color: "purple" as const,
     },
     {
       title: "Зі зображеннями",
@@ -31,7 +31,7 @@ export const PartnersStats: React.FC<PartnersStatsProps> = ({ locale }) => {
           (partner: Partner) =>
             partner.image && partner.image.length > 0 && partner.image[0]?.url
         ).length || 0,
-      color: "red" as const,
+      color: "purple" as const,
     },
     {
       title: "Мова",

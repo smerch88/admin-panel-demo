@@ -66,22 +66,22 @@ export class ChunkErrorBoundary extends Component<Props, State> {
               </svg>
             </div>
             <h2 className="text-lg font-semibold text-gray-900 text-center mb-2">
-              Loading Error
+              Помилка завантаження
             </h2>
             <p className="text-gray-600 text-center mb-6">
-              There was an error loading the application. This usually happens
-              when the app has been updated.
+              Виникла помилка під час завантаження застосунку. Зазвичай це
+              трапляється, коли застосунок було оновлено.
             </p>
             <div className="space-y-3">
               <Button onClick={this.handleRetry} className="w-full">
-                Reload Application
+                Перезавантажити застосунок
               </Button>
               <Button
                 variant="outline"
                 onClick={() => (window.location.href = "/login")}
                 className="w-full"
               >
-                Go to Login
+                Перейти до входу
               </Button>
             </div>
           </div>

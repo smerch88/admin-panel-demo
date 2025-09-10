@@ -17,18 +17,21 @@ export const CollectionsHeader: React.FC<CollectionsHeaderProps> = ({
   onCreate,
 }) => {
   return (
-    <PageHeader
-      title="Збори"
-      description="Керуйте своїми зборами коштів та кампаніями"
-    >
-      <LocaleSwitcher
-        selectedLocale={selectedLocale}
-        onLocaleChange={onLocaleChange}
-      />
-      <Button onClick={onCreate} className="flex items-center space-x-2">
-        <Plus className="h-4 w-4" />
-        <span>Створити збір</span>
-      </Button>
-    </PageHeader>
+    <>
+      <PageHeader
+        title="Управління зборами"
+        description="Керуйте своїми зборами коштів та кампаніями"
+      ></PageHeader>
+      <div className="flex items-center justify-between mb-[24px]">
+        <LocaleSwitcher
+          selectedLocale={selectedLocale}
+          onLocaleChange={onLocaleChange}
+        />
+        <Button onClick={onCreate} className="flex items-center space-x-2">
+          <Plus className="h-4 w-4" />
+          <span>Створити збір</span>
+        </Button>
+      </div>
+    </>
   );
 };

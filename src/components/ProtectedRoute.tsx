@@ -34,7 +34,7 @@ export function ProtectedRoute({
     // Check role requirements
     if (requiredRole && currentUser.role !== requiredRole) {
       if (requiredRole === "admin" && currentUser.role !== "admin") {
-        router.push("/dashboard"); // Redirect non-admin users to dashboard
+        router.push("/collections"); // Redirect non-admin users to dashboard
         return;
       }
     }
