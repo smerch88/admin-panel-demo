@@ -27,32 +27,34 @@ import { Plus, X } from "lucide-react";
 const collectionFormSchema = z.object({
   title: z
     .string()
-    .min(1, "Title is required")
-    .max(48, "Title must be 48 characters or less"),
+    .min(1, "Назва є обов'язковою")
+    .max(48, "Назва має бути не більше 48 символів"),
   desc: z
     .string()
-    .min(1, "Description is required")
-    .max(144, "Description must be 144 characters or less"),
-  collected: z.number().min(0, "Collected amount must be 0 or greater"),
-  target: z.number().min(0, "Target amount must be 0 or greater"),
+    .min(1, "Опис є обов'язковим")
+    .max(144, "Опис має бути не більше 144 символів"),
+  collected: z.number().min(0, "Зібрана сума має бути 0 або більше"),
+  target: z.number().min(0, "Цільова сума має бути 0 або більше"),
   alt: z
     .string()
-    .min(1, "Alt text is required")
-    .max(24, "Alt text must be 24 characters or less"),
-  peopleDonate: z.number().min(0, "People donated must be 0 or greater"),
-  peopleDonate_title: z.string().min(1, "People donated title is required"),
-  days: z.number().min(0, "Days must be 0 or greater"),
-  period: z.string().min(1, "Period is required"),
-  quantity: z.number().min(0, "Quantity must be 0 or greater"),
+    .min(1, "Альтернативний текст є обов'язковим")
+    .max(24, "Альтернативний текст має бути не більше 24 символів"),
+  peopleDonate: z.number().min(0, "Кількість донаторів має бути 0 або більше"),
+  peopleDonate_title: z
+    .string()
+    .min(1, "Заголовок для кількості донаторів є обов'язковим"),
+  days: z.number().min(0, "Кількість днів має бути 0 або більше"),
+  period: z.string().min(1, "Період є обов'язковим"),
+  quantity: z.number().min(0, "Кількість має бути 0 або більше"),
   status: z.enum(["active", "closed"]),
   value: z
     .string()
-    .min(1, "Value is required")
-    .max(48, "Value must be 48 characters or less"),
+    .min(1, "Значення є обов'язковим")
+    .max(48, "Значення має бути не більше 48 символів"),
   importance: z.enum(["urgent", "important", "non-urgent", "permanent"]),
   long_desc: z
-    .array(z.string().min(1, "Description section cannot be empty"))
-    .min(1, "At least one long description section is required"),
+    .array(z.string().min(1, "Розділ опису не може бути порожнім"))
+    .min(1, "Потрібен принаймні один розділ довгого опису"),
   image: z.instanceof(File).optional(),
 });
 

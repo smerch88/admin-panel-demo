@@ -52,7 +52,6 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
         onCloseDelete();
       } catch (error) {
         toast.error("Failed to delete partner");
-        console.error("Error deleting partner:", error);
       }
     }
   };

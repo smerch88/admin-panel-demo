@@ -23,7 +23,6 @@ export const userStorage = {
         try {
           return JSON.parse(userData) as User;
         } catch (error) {
-          console.error("Error parsing user data from localStorage:", error);
           return null;
         }
       }

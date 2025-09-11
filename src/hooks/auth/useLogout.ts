@@ -23,7 +23,6 @@ export const useLogout = () => {
       // to avoid chunk loading issues
     },
     onError: (error: unknown) => {
-      console.error("Logout error:", error);
       // Even if logout fails, clear local data and redirect
       clearAuthData();
       queryClient.invalidateQueries({ queryKey: ["auth"] });

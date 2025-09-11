@@ -13,7 +13,6 @@ export function Navigation() {
       await logout.mutateAsync();
       // Logout hook will handle redirect and localStorage cleanup
     } catch (error) {
-      console.error("Logout failed:", error);
       // Force redirect to login on error
       router.push("/login");
     }

@@ -119,7 +119,6 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
       onEditSuccess();
     } catch (error) {
       toast.error("Failed to update stats");
-      console.error("Error updating stats:", error);
     }
   };
 

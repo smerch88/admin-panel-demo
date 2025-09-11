@@ -57,7 +57,7 @@ export const MerchForm: React.FC<MerchFormProps> = ({
       });
       onSuccess();
     } catch (error) {
-      console.error("Error updating merch:", error);
+      throw error;
     }
   };
 

@@ -12,10 +12,13 @@ interface CollectionDetailsProps {
 
 export function CollectionDetails({ collection }: CollectionDetailsProps) {
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("uk-UA", {
       style: "currency",
-      currency: "USD",
-    }).format(amount);
+      currency: "UAH",
+      currencyDisplay: "symbol",
+    })
+      .format(amount)
+      .replace("грн", "₴");
   };
 
   const getStatusColor = (status: string) => {
@@ -111,12 +114,11 @@ export function CollectionDetails({ collection }: CollectionDetailsProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center">
               <label className="text-sm font-medium text-gray-500">
-                Collected
+                Зібрано
               </label>
               <p className="text-2xl font-bold text-green-600">
                 {formatCurrency(collection.collected)}
               </p>
-              <p className="text-sm text-gray-500">Зібрано</p>
             </div>
             <div className="text-center">
               <label className="text-sm font-medium text-gray-500">Ціль</label>

@@ -107,7 +107,7 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
       }
       onSuccess();
     } catch (error) {
-      console.error("Error saving partner:", error);
+      throw error;
     }
   };
 

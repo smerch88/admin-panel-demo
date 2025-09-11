@@ -75,7 +75,6 @@ export const MerchModal: React.FC<MerchModalProps> = ({
       onClose();
     } catch (error) {
       toast.error("Failed to update merch");
-      console.error("Error updating merch:", error);
     }
   };
 

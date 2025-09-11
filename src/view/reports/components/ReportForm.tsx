@@ -88,7 +88,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({
       }
       onSuccess();
     } catch (error) {
-      console.error("Error saving report:", error);
+      throw error;
     }
   };
 

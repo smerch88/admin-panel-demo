@@ -144,7 +144,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
       onCreateSuccess();
     } catch (error) {
       toast.error("Failed to create user");
-      console.error("Error creating user:", error);
+      throw error;
     }
   };
 
@@ -171,7 +171,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
       onEditSuccess();
     } catch (error) {
       toast.error("Failed to update user");
-      console.error("Error updating user:", error);
+      throw error;
     }
   };
 
@@ -393,7 +393,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 className="flex items-center space-x-2"
               >
                 <Lock className="h-4 w-4" />
-                <span>Пароль (залиште порожнім, щоб зберегти поточний)</span>
+                <span>Пароль (введіть поточний або новий пароль)</span>
               </Label>
               <Input
                 id="edit-password"
