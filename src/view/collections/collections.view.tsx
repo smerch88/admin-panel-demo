@@ -78,7 +78,6 @@ export default function CollectionsView() {
       refetch();
     } catch (error) {
       toast.error("Failed to create collection");
-      console.error("Create error:", error);
     }
   };
 
@@ -97,7 +96,6 @@ export default function CollectionsView() {
       refetch();
     } catch (error) {
       toast.error("Failed to update collection");
-      console.error("Update error:", error);
     }
   };
 
@@ -115,7 +113,6 @@ export default function CollectionsView() {
       refetch();
     } catch (error) {
       toast.error("Failed to delete collection");
-      console.error("Delete error:", error);
     }
   };
 

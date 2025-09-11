@@ -102,7 +102,7 @@ export const MerchDetails: React.FC<MerchDetailsProps> = ({
               <div>
                 <p className="text-sm font-medium text-gray-500">Мова</p>
                 <Badge variant="outline" className="text-sm">
-                  {merch.locale.toUpperCase()}
+                  {merch.locale?.toUpperCase()}
                 </Badge>
               </div>
             </div>

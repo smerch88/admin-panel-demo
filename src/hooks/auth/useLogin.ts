@@ -26,12 +26,12 @@ export const useLogin = () => {
         // Note: Navigation is now handled by the LoginForm component
         // to avoid chunk loading issues with window.location.href
       } catch (error) {
-        console.error("Error fetching current user after login:", error);
+        throw error;
         // Navigation will still be handled by LoginForm component
       }
     },
     onError: (error: unknown) => {
-      console.error("Login error:", error);
+      throw error;
     },
   });
 };

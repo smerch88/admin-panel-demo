@@ -146,7 +146,7 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
       }
       onSuccess();
     } catch (error) {
-      console.error("Error saving teammate:", error);
+      throw error;
     }
   };
 

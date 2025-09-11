@@ -15,7 +15,6 @@ api.interceptors.request.use(
     return config;
   },
   error => {
-    console.error("Request error:", error);
     return Promise.reject(error);
   }
 );
@@ -31,7 +30,6 @@ api.interceptors.response.use(
         localStorage.removeItem("user");
         // Use router.push instead of window.location.href to avoid chunk loading issues
         // This will be handled by the component that uses this interceptor
-        console.warn("Unauthorized access detected. Please login again.");
       }
     }
     return Promise.reject(error);

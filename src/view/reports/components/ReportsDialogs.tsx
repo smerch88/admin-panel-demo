@@ -52,7 +52,6 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
         onCloseDelete();
       } catch (error) {
         toast.error("Failed to delete report");
-        console.error("Error deleting report:", error);
       }
     }
   };

@@ -15,7 +15,6 @@ export const useFetchCurrentUser = () => {
     onSuccess: (userData: User) => {
       // Store user data in localStorage
       userStorage.setUser(userData);
-      console.log("User data stored in localStorage:", userData);
       // Invalidate and refetch current user query
       queryClient.invalidateQueries({ queryKey: ["auth-current-user"] });
       queryClient.invalidateQueries({ queryKey: ["auth-user-local"] });
@@ -25,7 +24,7 @@ export const useFetchCurrentUser = () => {
       queryClient.setQueryData(["auth-user-local"], userData);
     },
     onError: (error: unknown) => {
-      console.error("Error fetching current user:", error);
+      throw error;
     },
   });
 };
@@ -39,7 +38,6 @@ export const useRefreshCurrentUser = () => {
       const userData = await fetchCurrentUserMutation.mutateAsync();
       return userData;
     } catch (error) {
-      console.error("Failed to refresh user data:", error);
       throw error;
     }
   };

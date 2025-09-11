@@ -31,10 +31,6 @@ export class ChunkErrorBoundary extends Component<Props, State> {
     throw error;
   }
 
-  componentDidCatch(error: Error, errorInfo: any) {
-    console.error("Chunk loading error caught:", error, errorInfo);
-  }
-
   handleRetry = () => {
     // Clear the error state and reload the page
     this.setState({ hasError: false, error: undefined });

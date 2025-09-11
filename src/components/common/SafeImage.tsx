@@ -61,7 +61,6 @@ export const SafeImage: React.FC<SafeImageProps> = ({
           className
         )}
         onError={e => {
-          console.error("Image loading error:", src, e);
           setHasError(true);
         }}
         onLoad={() => setIsLoading(false)}

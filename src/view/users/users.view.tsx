@@ -68,7 +68,7 @@ export default function UsersView() {
         setIsDeleteDialogOpen(false);
         setSelectedUser(null);
       } catch (error) {
-        console.error("Error deleting user:", error);
+        throw error;
       }
     }
   };

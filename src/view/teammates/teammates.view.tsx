@@ -54,7 +54,7 @@ export default function TeammatesView() {
         setIsDeleteDialogOpen(false);
         setSelectedTeammate(null);
       } catch (error) {
-        console.error("Error deleting teammate:", error);
+        throw error;
       }
     }
   };

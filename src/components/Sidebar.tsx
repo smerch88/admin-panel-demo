@@ -36,7 +36,7 @@ export function Sidebar() {
     try {
       await logout.mutateAsync();
     } catch (error) {
-      console.error("Logout failed:", error);
+      throw error;
     }
   };
 
