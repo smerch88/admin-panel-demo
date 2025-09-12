@@ -48,10 +48,11 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
     if (selectedPartner) {
       try {
         await deletePartner.mutateAsync(selectedPartner._id);
-        toast.success("Partner deleted successfully!");
+        toast.success("Партнера успішно видалено!");
         onCloseDelete();
       } catch (error) {
-        toast.error("Failed to delete partner");
+        toast.error("Не вдалося видалити партнера");
+        throw error;
       }
     }
   };
@@ -59,7 +60,7 @@ export const PartnersDialogs: React.FC<PartnersDialogsProps> = ({
   const handleFormSuccess = () => {
     onCloseCreate();
     onCloseEdit();
-    toast.success("Partner saved successfully!");
+    toast.success("Партнера успішно збережено!");
   };
 
   return (

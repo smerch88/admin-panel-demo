@@ -209,7 +209,7 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
             type="text"
             value={formData.name}
             onChange={e => setFormData({ ...formData, name: e.target.value })}
-            placeholder="Enter teammate name"
+            placeholder="Введіть ім'я учасника"
             required
             maxLength={24}
             disabled={isLoading}
@@ -228,7 +228,7 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
             type="text"
             value={formData.role}
             onChange={e => setFormData({ ...formData, role: e.target.value })}
-            placeholder="Enter teammate role"
+            placeholder="Введіть роль учасника"
             required
             maxLength={48}
             disabled={isLoading}
@@ -248,7 +248,7 @@ export const TeammateForm: React.FC<TeammateFormProps> = ({
             onChange={e =>
               setFormData({ ...formData, description: e.target.value })
             }
-            placeholder="Enter teammate description"
+            placeholder="Введіть опис учасника"
             required
             maxLength={320}
             disabled={isLoading}

@@ -109,16 +109,17 @@ export const StatsDialogs: React.FC<StatsDialogsProps> = ({
     e.preventDefault();
 
     if (!validateForm()) {
-      toast.error("Please fix invalid values");
+      toast.error("Будь ласка, виправте недійсні значення");
       return;
     }
 
     try {
       await updateStats.mutateAsync(formData);
-      toast.success("Stats updated successfully!");
+      toast.success("Статистику успішно оновлено!");
       onEditSuccess();
     } catch (error) {
-      toast.error("Failed to update stats");
+      toast.error("Не вдалося оновити статистику");
+      throw error;
     }
   };
 

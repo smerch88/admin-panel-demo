@@ -53,17 +53,17 @@ export const TeammatesDialogs: React.FC<TeammatesDialogsProps> = ({
 }) => {
   const handleCreateSuccess = () => {
     onCloseCreate();
-    toast.success("Teammate saved successfully!");
+    toast.success("Учасника успішно збережено!");
   };
 
   const handleEditSuccess = () => {
-    toast.success("Teammate saved successfully!");
+    toast.success("Учасника успішно збережено!");
     onCloseEdit();
   };
 
   const handleDeleteConfirm = () => {
     onConfirmDelete();
-    toast.success("Teammate deleted successfully!");
+    toast.success("Учасника успішно видалено!");
   };
 
   return (

@@ -73,11 +73,12 @@ export default function CollectionsView() {
         locale: selectedLocale,
         collectionData: data,
       });
-      toast.success("Collection created successfully!");
+      toast.success("Збір успішно створено!");
       setIsCreateOpen(false);
       refetch();
     } catch (error) {
-      toast.error("Failed to create collection");
+      toast.error("Помилка під час створення збору");
+      throw error;
     }
   };
 
@@ -90,12 +91,13 @@ export default function CollectionsView() {
         id: selectedCollection._id,
         collectionData: data,
       });
-      toast.success("Collection updated successfully!");
+      toast.success("Збір успішно оновлено!");
       setIsEditOpen(false);
       setSelectedCollection(null);
       refetch();
     } catch (error) {
-      toast.error("Failed to update collection");
+      toast.error("Не вдалося оновити збір");
+      throw error;
     }
   };
 
@@ -107,12 +109,13 @@ export default function CollectionsView() {
         locale: selectedLocale,
         id: selectedCollection._id,
       });
-      toast.success("Collection deleted successfully!");
+      toast.success("Збір успішно видалено!");
       setIsDeleteOpen(false);
       setSelectedCollection(null);
       refetch();
     } catch (error) {
-      toast.error("Failed to delete collection");
+      toast.error("Не вдалося видалити збір");
+      throw error;
     }
   };
 

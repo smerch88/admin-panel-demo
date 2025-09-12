@@ -48,10 +48,11 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
     if (selectedReport) {
       try {
         await deleteReport.mutateAsync(selectedReport._id);
-        toast.success("Report deleted successfully!");
+        toast.success("Звіт успішно видалено!");
         onCloseDelete();
       } catch (error) {
-        toast.error("Failed to delete report");
+        toast.error("Не вдалося видалити звіт");
+        throw error;
       }
     }
   };
@@ -59,7 +60,7 @@ export const ReportsDialogs: React.FC<ReportsDialogsProps> = ({
   const handleFormSuccess = () => {
     onCloseCreate();
     onCloseEdit();
-    toast.success("Report saved successfully!");
+    toast.success("Звіт успішно збережено!");
   };
 
   return (
