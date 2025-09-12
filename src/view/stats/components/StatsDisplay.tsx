@@ -31,6 +31,25 @@ const statLabels = {
 export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
   const { data: stats, isLoading, error } = useStats();
 
+  function translateDesc(desc: string) {
+    switch (desc) {
+      case "people fed":
+        return "людей нагодовано";
+      case "provided with clothing":
+        return "забезпечені одягом";
+      case "supplied with water":
+        return "забезпечені водою";
+      case "received medicines":
+        return "отримали ліки";
+      case "fed animals":
+        return "тварини були нагодовані";
+      case "provided with electricity":
+        return "забезпечені електроенергією";
+      default:
+        return desc;
+    }
+  }
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -122,7 +141,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({ onEdit }) => {
                   {statItem.amount.toLocaleString()}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  {statItem.description}
+                  {translateDesc(statItem.description)}
                 </p>
               </CardContent>
             </Card>

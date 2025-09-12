@@ -167,7 +167,7 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({
             type="text"
             value={formData.logo}
             onChange={e => setFormData({ ...formData, logo: e.target.value })}
-            placeholder="Enter organization name"
+            placeholder="Введіть назву організації"
             required
             maxLength={128}
             disabled={isLoading}

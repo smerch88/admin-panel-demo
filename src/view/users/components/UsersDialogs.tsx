@@ -105,19 +105,19 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = "Ім'я є обов'язковим";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = "Е-пошта є обов’язковою";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = "Будь ласка, введіть дійсну адресу електронної пошти";
     }
 
     if (isCreateDialogOpen && !formData.password.trim()) {
-      newErrors.password = "Password is required";
+      newErrors.password = "Пароль є обов’язковим";
     } else if (formData.password && formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+      newErrors.password = "Пароль має містити щонайменше 6 символів";
     }
 
     setErrors(newErrors);
@@ -128,7 +128,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
     e.preventDefault();
 
     if (!validateForm()) {
-      toast.error("Please fix the highlighted errors");
+      toast.error("Будь ласка, виправте виділені помилки");
       return;
     }
 
@@ -140,10 +140,10 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
         role: formData.role,
       };
       await register.mutateAsync(userData);
-      toast.success("User created successfully!");
+      toast.success("Користувача успішно створено!");
       onCreateSuccess();
     } catch (error) {
-      toast.error("Failed to create user");
+      toast.error("Не вдалося створити користувача");
       throw error;
     }
   };
@@ -152,7 +152,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
     e.preventDefault();
 
     if (!validateForm() || !selectedUser) {
-      if (!validateForm()) toast.error("Please fix the highlighted errors");
+      if (!validateForm()) toast.error("Будь ласка, виправте виділені помилки");
       return;
     }
 
@@ -167,10 +167,10 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
         userId: selectedUser._id,
         userData,
       });
-      toast.success("User updated successfully!");
+      toast.success("Користувача успішно оновлено!");
       onEditSuccess();
     } catch (error) {
-      toast.error("Failed to update user");
+      toast.error("Не вдалося оновити користувача");
       throw error;
     }
   };
@@ -324,7 +324,7 @@ export const UsersDialogs: React.FC<UsersDialogsProps> = ({
                 ) : (
                   <>
                     <Save className="h-4 w-4" />
-                    <span>Створити користувача</span>
+                    <span>Створити</span>
                   </>
                 )}
               </Button>

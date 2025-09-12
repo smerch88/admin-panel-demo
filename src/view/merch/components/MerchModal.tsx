@@ -70,11 +70,12 @@ export const MerchModal: React.FC<MerchModalProps> = ({
         locale,
         merchData: formData,
       });
-      toast.success("Merch updated successfully!");
+      toast.success("Мерч успішно оновлено!");
       onSuccess();
       onClose();
     } catch (error) {
-      toast.error("Failed to update merch");
+      toast.error("Не вдалося оновити мерч");
+      throw error;
     }
   };
 
